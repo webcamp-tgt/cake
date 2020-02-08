@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   root to: 'end_users/homes#top'
   get 'homes/about'
   get 'admins/top'
