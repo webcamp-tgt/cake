@@ -10,6 +10,26 @@
   </head>
 
   <body>
-    <%= yield %>
+        <h1>ながのCAKE</h1>
+    <nav>
+      <ul>
+        <li>
+          <%= link_to 'log in', new_user_session_path %>
+        </li>
+        <li>
+          <%= link_to 'sign in'%>
+        </li>
+        <li>
+          <%= link_to 'About'%>
+        </li>
+
+        <li>
+          <%= link_to 'cart'%>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <%= yield %>
+  <footer><div>フッター</div></footer>
   </body>
 </html>
