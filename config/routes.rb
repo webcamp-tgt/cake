@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
-  get 'homes/about'
+  root to: 'end_users/homes#top'
+  get 'homes/about' => 'end_users/homes#about'
   get 'admins/top'
   devise_for :end_users,  :controllers => {
     :sessions => 'end_users/sessions',
@@ -17,6 +18,6 @@ Rails.application.routes.draw do
 
   namespace :end_users do
   	#end_usersのルートを下記に書く
-    root to: 'end_users/homes#top'
+    
   end
 end
