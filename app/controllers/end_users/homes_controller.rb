@@ -1,4 +1,4 @@
-class HomesController < ApplicationController
+class EndUsers::HomesController < ApplicationController
   def top
   end
 
