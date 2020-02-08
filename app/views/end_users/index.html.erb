@@ -3,13 +3,21 @@
 	<table>
 		<thead>
 			<tr>
-				<th>header</th>
+				<th>会員ID</th>
+				<th>氏名</th>
+				<th>メールアドレス</th>
+				<th>ステータス</th>
 			</tr>
 		</thead>
 		<tbody>
+			<% @end_users.each do |end_user| %>
 			<tr>
-				<td>data</td>
+				<td><%= link_to  %></td>
+				<td><%=   %></td>
+				<td><%=   %></td>
+				<td><%=   %></td>
 			</tr>
+			<% end %>
 		</tbody>
 	</table>
 </body>
