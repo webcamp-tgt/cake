@@ -23,9 +23,6 @@ Rails.application.routes.draw do
 
   namespace :end_users do
   	#end_usersのルートを下記に書く
-<<<<<<< HEAD
-=======
     resources :items
->>>>>>> 1e329200936770b9c2ad613c4baa3af23693b3ab
   end
 end
