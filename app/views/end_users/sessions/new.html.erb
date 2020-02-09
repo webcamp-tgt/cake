@@ -1,13 +1,13 @@
-<h2>Log in</h2>
+<div>会員の方はこちらからログイン</div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
+    <% f.label :email %>メールアドレス<br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
+    <% f.label :password %>パスワード<br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
@@ -17,10 +17,16 @@
       <%= f.label :remember_me %>
     </div>
   <% end %>
+  <%= link_to "パスワードを忘れた方はこちら" %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログイン" %>
+  </div>
+  <div>登録がお済みでない方<br>
+    <%= link_to "こちら", new_end_user_registration_path %>
+    から新規登録を行ってください。
   </div>
 <% end %>
 
-<%= render "end_users/shared/links" %>
+
+
