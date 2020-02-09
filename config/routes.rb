@@ -18,6 +18,5 @@ Rails.application.routes.draw do
 
   namespace :end_users do
   	#end_usersのルートを下記に書く
-    
   end
 end
