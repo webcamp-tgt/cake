@@ -18,10 +18,11 @@ Rails.application.routes.draw do
   namespace :admins do
   	#adminsのルートを下記に書く
   	resources :items
+    resources :end_users
   end
 
   namespace :end_users do
   	#end_usersのルートを下記に書く
-    
+    resources :items
   end
 end
