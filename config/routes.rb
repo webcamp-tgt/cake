@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :end_users do
+    get 'homes/top'
+    get 'homes/about'
+  end
   root to: 'end_users/homes#top'
   get 'homes/about' => 'end_users/homes#about'
   get 'admins/top'
