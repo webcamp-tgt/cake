@@ -1,2 +1,2 @@
-class CartItemsController < ApplicationController
+class EndUsers::CartItemsController < ApplicationController
 end

@@ -1,0 +1,38 @@
+<body>
+	<table class="genres_sarch">
+		<thead>
+			<tr>
+				<th>ジャンル検索</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><% link_to "ケーキ", %></td>
+			</tr>
+			<tr>
+				<td><% link_to "焼き菓子", %></td>
+			</tr>
+			<tr>
+				<td><% link_to "プリン", %></td>
+			</tr>
+			<tr>
+				<td><% link_to "キャンディ", %></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="item_image">
+		<%= attachment_image_tag @item, :image_id, size: 50, fallback:"no_image.jpg"%>
+		<%= @item.name %>
+		<%= @item.description %>
+		<%= @item.price %>
+	</div>
+
+	<form action="#" method="GET">
+      <select name="" id="order_quantity">
+        <%= select_tag :order_quantity, options_for_select((1..30).to_a) %>
+      </select>
+      <input type="submit" name="submit" value="カートに入れる" >
+    </form>
+
+</body>
