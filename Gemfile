@@ -62,6 +62,12 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'kaminari'
+<<<<<<< HEAD
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+gem 'paranoia'
+=======
 gem 'refile'
 gem 'paranoia'
 gem 'cocoon'
+>>>>>>> 1e329200936770b9c2ad613c4baa3af23693b3ab
