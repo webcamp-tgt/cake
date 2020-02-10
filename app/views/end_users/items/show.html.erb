@@ -28,11 +28,9 @@
 		<%= @item.price %>
 	</div>
 
-	<form action="#" method="GET">
-      <select name="" id="order_quantity">
-        <%= select_tag :order_quantity, options_for_select((1..30).to_a) %>
-      </select>
-      <input type="submit" name="submit" value="カートに入れる" >
-    </form>
+	<%= form_for @item do |f| %>
+		<%= f.label :order_quantity, %>
+		<%= f.select :order_quantity, [1..30] %>
+	<% end %>
 
 </body>

@@ -67,5 +67,9 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'paranoia'
 gem 'cocoon'
+<<<<<<< HEAD
+
+=======
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
+>>>>>>> 655291eb11e76b876d2cdec821443aaf005cf94d
