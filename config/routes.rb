@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :end_users do
-    get 'homes/top'
-    get 'homes/about'
-  end
   root to: 'end_users/homes#top'
   get 'homes/about' => 'end_users/homes#about'
   get 'admins/top'
@@ -23,6 +19,10 @@ Rails.application.routes.draw do
 
   namespace :end_users do
   	#end_usersのルートを下記に書く
-    resources :items
+    resources :orders
+    get 'homes/top'
+    get 'homes/about'
+    get "genres/:genre_id/items" => "items#index"
+    get "items/:id" => "items#show"
   end
 end

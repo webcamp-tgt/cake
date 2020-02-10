@@ -7,22 +7,22 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><% link_to "ケーキ", %></td>
+				<td><%= link_to "ケーキ" %></td>
 			</tr>
 			<tr>
-				<td><% link_to "焼き菓子", %></td>
+				<td><%= link_to "焼き菓子" %></td>
 			</tr>
 			<tr>
-				<td><% link_to "プリン", %></td>
+				<td><%= link_to "プリン" %></td>
 			</tr>
 			<tr>
-				<td><% link_to "キャンディ", %></td>
+				<td><%= link_to "キャンディ" %></td>
 			</tr>
 		</tbody>
 	</table>
 
 	<div>
-		<h1><%= genres.name %><p>全<%= count %>件</p></h1>
+		<h1><%= @genre.name %>全<%= @genre.items.count %>件</h1>
 	</div>
 
 	<% @items.each do |item| %>
@@ -31,5 +31,6 @@
 		<%= item.name %>
 		<%= item.price %>
 	</div>
+	<% end %>
 
 </body>
