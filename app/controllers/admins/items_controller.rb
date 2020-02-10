@@ -12,7 +12,9 @@ class Admins::ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.save
+    # binding.pry
+    @item.genre_id = params[:item][:genre_id]
+    @item.save!
     redirect_to root_path
   end
 
@@ -28,6 +30,9 @@ class Admins::ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:image, :name, :description, :genres, :price, :sale_status)
   end
+<<<<<<< HEAD
 
+=======
+>>>>>>> 655291eb11e76b876d2cdec821443aaf005cf94d
 end
 
