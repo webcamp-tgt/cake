@@ -12,19 +12,16 @@
 <body>
   <header class="sticky-top">
     <h1>ながのCAKE</h1>
-<<<<<<< HEAD
     <nav>
       <% if end_user_signed_in? %>
       <ul>
-=======
     <nav class="container">
       <ul class="nav navbar-nav">
->>>>>>> 5c3c2fb9366e732b1d0708b37fc2ac5ab1881d59
         <li>
            <%= link_to 'my.page' %>
         </li>
         <li>
-          <%= link_to 'About' %>
+          <%= link_to 'About', end_users_homes_about_path %>
         </li>
         <li>
           <%= link_to 'logout', destroy_end_user_session_path, method: :delete %>
@@ -34,16 +31,16 @@
         </li>
       <% elsif admin_signed_in? %>
       <li>
-          <%= link_to '商品一覧' %>
+          <%= link_to '商品一覧', admins_items_path %>
         </li>
         <li>
-          <%= link_to '会員一覧' %>
+          <%= link_to '会員一覧', admins_end_users_path %>
         </li>
         <li>
           <%= link_to '注文履歴一覧' %>
         </li>
         <li>
-          <%= link_to 'ジャンル管理' %>
+          <%= link_to 'ジャンル管理', admins_genres_path %>
         </li>
         <li>
           <%= link_to 'logout', destroy_end_user_session_path, method: :delete %>
