@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   end
   root to: 'end_users/homes#top'
   get 'homes/about' => 'end_users/homes#about'
-  get 'admins/top'
+  get 'admins/top' => 'admins/homes#top'
+  # root to: 'admins#top'
   devise_for :end_users,  :controllers => {
     :sessions => 'end_users/sessions',
     :registrations => 'end_users/registrations'
