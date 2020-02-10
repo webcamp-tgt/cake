@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :end_users,  :controllers => {
     :sessions => 'end_users/sessions',
     :registrations => 'end_users/registrations'
-    }
+  }
   devise_for :admins,  :controllers => {
     :sessions => 'admins/sessions'
   }
@@ -26,5 +26,10 @@ Rails.application.routes.draw do
     get 'homes/about'
     get "genres/:genre_id/items" => "items#index"
     get "items/:id" => "items#show"
+
+
+    resources :cart_items, only: [:index, :create, :update, :destroy]
+    get 'cart_items/empty_cart' => "cart_items#empty_cart"
   end
 end
+
