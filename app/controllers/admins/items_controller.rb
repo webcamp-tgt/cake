@@ -12,8 +12,9 @@ class Admins::ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.genre_id = params[:genre_id]
-    @item.save
+    # binding.pry
+    @item.genre_id = params[:item][:genre_id]
+    @item.save!
     redirect_to root_path
   end
 
