@@ -1,1 +1,20 @@
-<h1>genre編集画面</h1>
+<h1>ジャンル編集画面</h1>
+
+<label>ジャンル</label>
+<%= form_for(@genre,url:admins_genre_path(@genre), method: :patch) do |f| %>
+
+<%= f.text_field :name%>
+<!-- ここにラジオボタン追加 -->
+<div>
+	<div>
+		<label>
+			<%= f.radio_button :is_active, true %>有効
+		</label>
+		<label>
+			<%= f.radio_button :is_active, false %>無効
+		</label>
+	</div>
+</div>
+
+<%= f.submit "変更保存" %>
+<% end %>
