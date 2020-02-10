@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>TgtCake</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>TgtCake</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
+<body>
+  <header class="sticky-top">
     <h1>ながのCAKE</h1>
-    <nav>
-      <ul>
+    <nav class="container">
+      <ul class="nav navbar-nav">
         <li>
           <%= link_to 'log in', new_end_user_session_path %>
         </li>
@@ -33,6 +34,11 @@
     </nav>
   </header>
   <%= yield %>
-  <footer><div>フッター</div></footer>
-  </body>
+  <footer class="container">
+    <div class="row">
+    <div class="col-xs-3 col-xs-offset-9">
+    <p>©ながのCAKE Production by TGT</p>
+  </div>
+  </footer>
+</body>
 </html>

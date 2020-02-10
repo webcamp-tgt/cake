@@ -5,10 +5,17 @@
 
 <%= f.text_field :name%>
 <!-- ここにラジオボタン追加 -->
-<p>
-	<input type="radio" name="is_active" value="有効"> 有効
-	<input type="radio" name="is_active" value="無効"> 無効
-</p>
+
+
+<div>
+	<label>
+		<%= f.radio_button :is_active, true %>有効
+	</label>
+	<label>
+		<%= f.radio_button :is_active, false %>無効
+	</label>
+</div>
+
 <%= f.submit "追加" %>
 <% end %>
 
@@ -27,7 +34,11 @@
 				<%= genre.name %>
 			</td>
 			<td>
-				<%= genre.is_active %>
+				<% if genre.is_active == true %>
+					有効
+				<% else %>
+					無効
+				<% end %>
 			</td>
 			<td>
 				<%= link_to "編集する", edit_admins_genre_path(genre.id) %>
