@@ -7,7 +7,7 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><%= link_to "ケーキ" %></td>
+				<td><%= link_to "ケーキ"  %></td>
 			</tr>
 			<tr>
 				<td><%= link_to "焼き菓子" %></td>
@@ -27,7 +27,7 @@
 
 	<% @items.each do |item| %>
 	<div class="item_image">
-		<%= attachment_image_tag item, :image_id, size: 50, fallback:"no_image.jpg"%>
+		<%= attachment_image_tag item, :image, size: 50, fallback:"no_image.jpg"%>
 		<%= item.name %>
 		<%= item.price %>
 	</div>
