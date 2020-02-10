@@ -12,10 +12,8 @@
 <body>
   <header class="sticky-top">
     <h1>ながのCAKE</h1>
-    <nav>
-      <% if end_user_signed_in? %>
-      <ul>
     <nav class="container">
+      <% if end_user_signed_in? %>
       <ul class="nav navbar-nav">
         <li>
            <%= link_to 'my.page' %>
@@ -45,26 +43,26 @@
         <li>
           <%= link_to 'logout', destroy_end_user_session_path, method: :delete %>
         </li>
+
       <% else %>
-        <li>
-          <%= link_to 'log in', new_end_user_session_path %>
-        </li>
-        <li>
-          <%= link_to 'sign in', new_end_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to 'About', homes_about_path %>
-        </li>
-       <% end %>
-      </ul>
-    </nav>
-  </header>
-  <%= yield %>
-  <footer class="container">
-    <div class="row">
+      <li>
+        <%= link_to 'log in', new_end_user_session_path %>
+      </li>
+      <li>
+        <%= link_to 'sign in', new_end_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to 'About', homes_about_path %>
+      </li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
+<footer class="container">
+  <div class="row">
     <div class="col-xs-3 col-xs-offset-9">
-    <p>©ながのCAKE Production by TGT</p>
-  </div>
+      <p>©ながのCAKE Production by TGT</p>
+    </div>
   </footer>
 </body>
 </html>
