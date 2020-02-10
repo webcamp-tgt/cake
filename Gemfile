@@ -69,4 +69,3 @@ gem 'paranoia'
 gem 'cocoon'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
-

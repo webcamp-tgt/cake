@@ -1,27 +1,27 @@
 
-	<body>
-		<h1>商品 新規登録画面</h1>
 
-		<%= form_for(@item,url: admins_items_path,method: :post) do |f| %>
-		<%= f.attachment_field :image %>
+	<h1>商品 新規登録画面</h1>
 
-		<div>
-			<label>商品名</label>
-			<%= f.text_field :name%>
+	<%= form_for(@item,url: admins_items_path,method: :post) do |f| %>
+	<%= f.attachment_field :image %>
 
-			<label>商品説明</label>
-			<%= f.text_area :description%>
+	<div>
+		<label>商品名</label>
+		<%= f.text_field :name%>
 
-			<label>ジャンル</label>
-			<%= f.collection_select :genre_id, Genre.all, :id, :name %>
+		<label>商品説明</label>
+		<%= f.text_area :description%>
 
-			<label>税抜価格 ¥</label>
-			<%= f.text_field :price%>
+		<label>ジャンル</label>
+		<%= f.collection_select :genre_id, Genre.all, :id, :name %>
 
-			<label>販売ステータス</label>
-			<%= f.select :sale_status, [["販売中", "販売中"], ["販売休止中", "販売休止中"]] %>
+		<label>税抜価格 ¥</label>
+		<%= f.text_field :price%>
 
-			<%= f.submit "新規登録" %>
-		</div>
-		<% end %>
-	</body>
+		<label>販売ステータス</label>
+		<%= f.select :sale_status, [["販売中", "販売中"], ["販売休止中", "販売休止中"]] %>
+
+		<%= f.submit "新規登録" %>
+	</div>
+	<% end %>
+</body>
