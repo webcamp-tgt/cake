@@ -7,16 +7,16 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><%= link_to "ケーキ"  %></td>
+				<td><%= link_to "ケーキ","http://localhost:3000/end_users/genres/2/items" %></td>
 			</tr>
 			<tr>
-				<td><%= link_to "焼き菓子" %></td>
+				<td><%= link_to "焼き菓子","http://localhost:3000/end_users/genres/3/items" %></td>
 			</tr>
 			<tr>
-				<td><%= link_to "プリン" %></td>
+				<td><%= link_to "プリン","http://localhost:3000/end_users/genres/4/items" %></td>
 			</tr>
 			<tr>
-				<td><%= link_to "キャンディ" %></td>
+				<td><%= link_to "キャンディ","http://localhost:3000/end_users/genres/5/items" %></td>
 			</tr>
 		</tbody>
 	</table>
@@ -29,7 +29,7 @@
 	<div class="item_image">
 		<%= attachment_image_tag item, :image, size: 50, fallback:"no_image.jpg"%>
 		<%= item.name %>
-		<%= item.price %>
+		<P>¥<%= item.price %>(税抜き)</P>
 	</div>
 	<% end %>
 

@@ -4,42 +4,44 @@
 			<thead>
 			</thead>
 			<tbody>
-				<% @end_users.each do |end_user| %>
 				<tr>
 					<td>顧客ID</td>
-					<td><%= %></td>
+					<td>
+						<%= @end_user.id %>
+					</td>
 					<!-- ステータス表示 -->
 					<td><%= %></td>
 				</tr>
 				<tr>
 					<td>氏名</td>
-					<td><%= %></td>
+					<td><%= @end_user.name %></td>
 				</tr>
 				<tr>
 					<td>フリガナ</td>
-					<td><%= %></td>
+					<td>
+						<%= @end_user.last_name_kana %>
+						<%= @end_user.first_name_kana %>
+					</td>
 				</tr>
 				<tr>
 					<td>郵便番号</td>
-					<td><%= %></td>
+					<td><%= @end_user.zip_code %></td>
 				</tr>
 				<tr>
 					<td>住所</td>
-					<td><%= %></td>
+					<td><%= @end_user.address %></td>
 				</tr>
 				<tr>
 					<td>電話番号</td>
-					<td><%= %></td>
+					<td><%= @end_user.phone_number %></td>
 				</tr>
 				<tr>
 					<td>メールアドレス</td>
-					<td><%= %></td>
+					<td><%= @end_user.email %></td>
 				</tr>
 				<tr>
-					<td>編集ボタン</td>
-				</tr>
-				<tr>
-					<td>注文履歴一覧を見る</td>
+					<td><%= link_to "編集する",edit_admins_end_user_path(@end_user.id) %></td>
+					<td><%= link_to "注文履歴一覧を見る" %></td>
 				</tr>
 				<% end %>
 			</tbody>
