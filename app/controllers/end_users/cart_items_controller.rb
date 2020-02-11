@@ -6,29 +6,21 @@ class EndUsers::CartItemsController < ApplicationController
 	end
 
 	def create
-		if @cart_item.blank?
-			@cart_item = current_end_user.cart_items.build(item_id: params[:item_id])
-		end
-
-		@cart_item.quantity = params[:quantity].to_i
+		@cart_item = CartItem.new(cart_item_params)
 		@cart_item.save
-		redirect_to current_end_user.cart_items
+		redirect_to end_users_cart_items_path
 	end
 
-	  # カート詳細画面から、「更新」を押した時のアクション
-	  def update
-	  	@cart_item.update(quantity: params[:quantity].to_i)
-	  	redirect_to current_end_user.cart_items
-	  end
 
-	# カート詳細画面から、「削除」を押した時のアクション
+	def update
+	end
+
 	def destroy
-		@cart_item.destroy
-		redirect_to current_end_user.cart_items
 	end
-	private
 
-	def setup_cart_item!
-		@cart_item = current_end_user.cart_items.find_by(item_id: params[:item_id])
+	private
+	def cart_item_params
+		params.require(:cart_item).permit(:quantity)
 	end
+
 end
