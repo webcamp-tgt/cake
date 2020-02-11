@@ -1,11 +1,16 @@
 class EndUsers::ItemsController < ApplicationController
 	def index
-		@items = Item.all
-		@genre = Genre.find(params[:genre_id])
+		# @items = Item.all
+		# @genre = Genre.find(params[:genre_id])
+		if params[:genre_id]
+			@genre = Genre.find(params[:genre_id])
+			@items = @genre.items.order(created_at: :desc).all
+		end
 	end
 
 	def show
 		@item = Item.find(params[:id])
+		@items = Item.all
 		@cart_item = CartItem.new
 	end
 
