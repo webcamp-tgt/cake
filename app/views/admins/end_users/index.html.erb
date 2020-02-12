@@ -1,3 +1,4 @@
+
 <div class="container">
 	<div class="row">
 		<body>
@@ -15,7 +16,7 @@
 					<% @end_users.each do |end_user| %>
 					<tr>
 						<td><%= end_user.id %></td>
-						<td><%= link_to @end_user.name,admins_end_user_path(end_user.id)  %></td>
+						<td><%= link_to end_user.full_name ,admins_end_user_path(end_user.id)  %></td>
 						<td><%= end_user.email  %></td>
 						<td><%= "後で記述"  %></td>
 					</tr>
@@ -25,3 +26,4 @@
 		</body>
 	</div>
 </div>
+
