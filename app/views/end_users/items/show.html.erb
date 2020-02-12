@@ -1,37 +1,41 @@
-<body>
-	<table class="genres_sarch">
-		<thead>
-			<tr>
-				<th>ジャンル検索</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td><% link_to "ケーキ",end_users_path(@item.genre_id) %></td>
-			</tr>
-			<tr>
-				<td><% link_to "焼き菓子",end_users_path() %></td>
-			</tr>
-			<tr>
-				<td><% link_to "プリン",end_users_path() %></td>
-			</tr>
-			<tr>
-				<td><% link_to "キャンディ",end_users_path() %></td>
-			</tr>
-		</tbody>
-	</table>
+<div class="container">
+	<div class="row">
+		<body>
+			<table class="genres_sarch">
+				<thead>
+					<tr>
+						<th>ジャンル検索</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><% link_to "ケーキ",end_users_path(@item.genre_id) %></td>
+					</tr>
+					<tr>
+						<td><% link_to "焼き菓子",end_users_path() %></td>
+					</tr>
+					<tr>
+						<td><% link_to "プリン",end_users_path() %></td>
+					</tr>
+					<tr>
+						<td><% link_to "キャンディ",end_users_path() %></td>
+					</tr>
+				</tbody>
+			</table>
 
-	<div class="item_image">
-		<%= attachment_image_tag @item, :image, size: 50, fallback:"no_image.jpg"%>
-		<%= @item.name %>
-		<%= @item.description %>
-		<p>¥<%= @item.price %>(税込)</p>
+			<div class="item_image">
+				<%= attachment_image_tag @item, :image, size: 50, fallback:"no_image.jpg"%>
+				<%= @item.name %>
+				<%= @item.description %>
+				<p>¥<%= @item.price %>(税込)</p>
+			</div>
+
+			<%= form_for(@cart_item, url:end_users_cart_items_path) do |f| %>
+			<%= f.label :quantity %>
+			<%= f.select :quantity,(1..30).to_a %>
+			<%= f.submit "カートに入れる" %>
+			<% end %>
+
+		</body>
 	</div>
-
-	<%= form_for(@cart_item, url:end_users_cart_items_path) do |f| %>
-		<%= f.label :quantity %>
-		<%= f.select :quantity,(1..30).to_a %>
-		<%= f.submit "カートに入れる" %>
-	<% end %>
-
-</body>
+</div>

@@ -1,8 +1,7 @@
-<body>
-	<h1>会員詳細画面</h1>
+<div class="container">
+	<div class="row">
+		<h1>会員詳細画面</h1>
 		<table>
-			<thead>
-			</thead>
 			<tbody>
 				<tr>
 					<td>顧客ID</td>
@@ -14,10 +13,8 @@
 				</tr>
 				<tr>
 					<td>氏名</td>
-					<td>
-						<%= @end_user.last_name %>
-						<%= @end_user.first_name %>
-					</td>
+					<td><%= @end_user.full_name %></td>
+
 				</tr>
 				<tr>
 					<td>フリガナ</td>
@@ -48,4 +45,5 @@
 				</tr>
 			</tbody>
 		</table>
-</body>
+	</div>
+</div>

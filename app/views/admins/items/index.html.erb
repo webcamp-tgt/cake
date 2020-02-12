@@ -1,8 +1,10 @@
-<h1>商品一覧画面</h1>
+<div class="container">
+	<div class="row">
+		<h2>商品一覧画面</h2>
 
-<%= link_to  "商品登録", new_admins_item_path  %>
+		<%= link_to  "", new_admins_item_path, class: "pull-right col-xs-1 btn btn-default glyphicon glyphicon-plus" %>
 
-<table>
+<table class="table">
 	<thead>
 		<tr>
 			<th>商品ID</th>
@@ -16,7 +18,7 @@
 		<% @items.each do |item| %>
 		<tr>
 			<td><%= item.id %></td>
-			<td><%= item.name %></td>
+			<td><%= link_to item.name, admins_item_path(item) %></td>
 			<td><%= item.price %></td>
 			<td><%= item.genre.name%></td>
 			<td><%= item.sale_status %></td>
