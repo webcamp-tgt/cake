@@ -7,4 +7,8 @@ class EndUser < ApplicationRecord
   has_many :cart_items,dependent: :destroy
   has_many :orders,dependent: :destroy
   has_many :shipping_addresses,dependent: :destroy
+
+  def full_name
+  	[first_name, last_name].join('')
+  end
 end
