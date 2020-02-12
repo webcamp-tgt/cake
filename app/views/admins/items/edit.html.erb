@@ -1,7 +1,7 @@
 <body>
 	<h1>商品 編集画面</h1>
 
-	<% form_for(@item) do |f| %>
+	<%= form_for(@item, url:admins_item_path, method: :patch) do |f| %>
 		<%= attachment_image_tag @item, :image, :fill, 60, 60,format: "jpeg", fallback: "no_image.jpg"%>
 	<div>
 		<label>商品名</label>
@@ -11,7 +11,7 @@
 		<%= f.text_area :description%>
 
 		<label>ジャンル</label>
-		<%= f.text_field :genres.name%>
+		<%= f.select :name, Genre.all.map { |genre| [genre.name] } %>
 
 		<label>税抜価格</label>
 		<%= f.text_field :price%>
