@@ -13,13 +13,16 @@
 				<%= f.text_area :description%>
 
 				<label>ジャンル</label>
-				<%= f.select :genre_id, Genre.all.map { |genre| [genre.name] } %>
+
+				<%= f.collection_select :genre_id, Genre.all, :id, :name %>
+
+
 
 				<label>税抜価格</label>
 				<%= f.text_field :price%>
 
 				<label>販売ステータス</label>
-				<%= f.text_field :sale_status%>
+				<%= f.collection_select :sale_status, Items.sale_status, :id, :name %>
 
 				<%= f.submit "保存" %>
 
