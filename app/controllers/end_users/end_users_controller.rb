@@ -1,19 +1,7 @@
 class EndUsers::EndUsersController < ApplicationController
 
 	def show
+	    @end_user = EndUser.find(params[:id])
+	    # @end_user.id = current_user.id
 	end
-
-	def edit
-	end
-
-	def update
-	end
-
-	def create
-	end
-
-	def destroy
-	end
-
-	private
 end
