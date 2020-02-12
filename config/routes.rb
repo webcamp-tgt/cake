@@ -21,7 +21,9 @@ Rails.application.routes.draw do
 
   namespace :end_users do
   	#end_usersのルートを下記に書く
+    resources :end_users
     resources :orders
+    resources :items
     get 'homes/top'
     get 'homes/about'
     get "genres/:genre_id/items" => "items#index"

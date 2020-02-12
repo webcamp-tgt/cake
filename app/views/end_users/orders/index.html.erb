@@ -1,60 +1,35 @@
+
 <div class="container">
 	<div class="row">
-		<body>
-			<h2>配送先登録/一覧</h2>
-			<%= form_for(@order,url:end_users_orders_path, method: :post)  do |f| %>
-			<table>
-				<thead>
-					<tr>
-						<th>郵便番号</th>
-						<td><%= f.text_field :zip_code %></td>
-					</tr>
-					<tr>
-						<th>住所</th>
-						<td><%= f.text_field :address %></td>
-					</tr>
-					<tr>
-						<th>宛名</th>
-						<td><%= f.text_field :order_name %></td>
-					</tr>
-				</thead>
-			</table>
-			<button >
-				<%= f.submit "登録する" %>
-			</button>
+<body>
+	<h2>注文履歴一覧</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>注文日</th>
+				<th>配送先</th>
+				<th>注文商品</th>
+				<th>支払い金額</th>
+				<th>ステータス</th>
+				<th>注文詳細</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @orders.each do |order| %>
+			<tr>
+				<td><%= order.creat_at %></td>
+				<td><%= order.zip_code %>
+					<%= order.address %>
+					<%= order.order_name %>
+				</td>
+				<td><%= order.order_item.name %></td>
+				<td><%= order.total_amount %></td>
+				<td><%= order.order_status %></td>
+				<td><%= link_to "表示する",end_users_order(order) %></td>
+			</tr>
 			<% end %>
-
-
-			<table>
-				<thead>
-					<tr>
-						<th>郵便番号</th>
-						<th>住所</th>
-						<th>宛名</th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-					<% @orders.each do |order| %>
-					<tr>
-						<td>
-							<%= order.zip_code %>
-						</td>
-						<td>
-							<%= order.address %>
-						</td>
-						<td>
-							<%= order.order_name %>
-						</td>
-						<td>
-							<%= link_to "編集する", edit_end_users_order(order.id) %>
-							<%= link_to "削除する", end_users_order(order.id),method: :delete %>
-						</td>
-					</tr>
-					<% end %>
-				</tbody>
-			</table>
-
-		</body>
+		</tbody>
+	</table>
+</body>
 	</div>
 </div>

@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">
+
+<body>
+	<h2>配送先編集</h2>
+	<%= form_for @shipping_address do |f| %>
+	<table>
+		<thead>
+			<tr>
+				<th>郵便番号</th>
+				<td><%= f.text_field :zip_code %></td>
+			</tr>
+			<tr>
+				<th>住所</th>
+				<td><%= f.text_field :address %></td>
+			</tr>
+			<tr>
+				<th>宛名</th>
+				<td><%= f.text_field :order_name %></td>
+			</tr>
+		</thead>
+	</table>
+	<button >
+	<%= f.submit "編集する" %>
+	</button>
+	<% end %>
+</body>
+	</div>
+</div>
