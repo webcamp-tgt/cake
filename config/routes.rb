@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :end_users
     resources :orders
     resources :items
+    resources :shipping_addresses
     get 'homes/top'
     get 'homes/about'
     get "genres/:genre_id/items" => "items#index"
