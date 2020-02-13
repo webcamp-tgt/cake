@@ -1,43 +1,64 @@
 <h1>注文詳細画面</h1>
 　　<table>
 	　　<tbody>
-		  <tr>
-			  <td>購入者</td>
-			  <td><%= @order.end_user.full_name %> </td>
-		  </tr>
-		  <tr>
-			  <td>配送先<td>
-			  <td><%= @order.address %><br>
-				<%= @order_name %></td>
-		  </tr>
-		  <tr>
-			  <td>支払方法</td>
-			  <td>銀行振込</td>
-		  </tr>
-		  <tr>
-			  <td>注文ステータス</td>
-			  <td><%= f.select :sale_status, [["0", "入金待ち"], ["1", "入金確認"]["2", "製作中"], ["3", "発送準備中"]["4", "発送済み"] %></td>
-		  </tr>
-	    </tbody>
-    </table>
-    <table>
-    	<thead>
-    		<tr>
-    			<th>商品名</th>
-    			<th>単価（税込）</th>
-    			<td>数量</td>
-    			<td>小計</td>
-    			<td>制作ステータス</td>
-    		</tr>
-    	</thead>
-    	<tbody>
-    		<%= @order_itmes.each do |order_item| %>
-    		<tr>
-    			<td><%= order_item.name %></td>
-    			<td><%= order_item.price_tax %></td>
-    			<td><%= order_item.order_quantity %></td>
-    			<td><%= 小計%></td>
-    			<td><%= f.select :production_status, [["0","着手不可"]["1","制作待ち"]["2","製作中"],["3","制作完了"]] %></td>
-    		</tr>
-    	</tbody>
-    </table>
+		<tr>
+			<td>購入者</td>
+			<td><%= @order.end_user.full_name %> </td>
+		</tr>
+		<tr>
+			<td>配送先<td>
+				<td><%= @order.address %><br>
+					<%= @order_name %></td>
+				</tr>
+				<tr>
+					<td>支払方法</td>
+					<td>銀行振込</td>
+				</tr>
+				<tr>
+					<td>注文ステータス</td>
+					<td><%= f.select :sale_status, [["0", "入金待ち"], ["1", "入金確認"]["2", "製作中"], ["3", "発送準備中"]["4", "発送済み"] %></td>
+					<td><%= button_to "更新", action: "update" %></td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- 注文商品詳細 -->
+		<table>
+			<thead>
+				<tr>
+					<th>商品名</th>
+					<th>単価（税込）</th>
+					<td>数量</td>
+					<td>小計</td>
+					<td>制作ステータス</td>
+				</tr>
+			</thead>
+			<tbody>
+				<%= @order_itmes.each do |order_item| %>
+				<tr>
+					<td><%= order_item.name %></td>
+					<td><%= order_item.price_tax %></td>
+					<td><%= order_item.order_quantity %></td>
+					<td><%= order_item.total_price %></td>
+					<td><%= f.select :production_status, [["0","着手不可"]["1","制作待ち"]["2","製作中"],["3","制作完了"]] %></td>
+					<td><%= button_to "更新", action: "update" %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<!-- 注文詳細画面 -->
+		<table>
+			<tbody>
+				<tr>
+					<td>商品合計</td>
+					<td><%= (@order.total_price).to_i %>円</td>
+				</tr>
+				<tr>
+					<td>送料</td>
+					<td><%= @order.shipping_cost %>円</td>
+				</tr>
+				<tr>
+					<td>請求金額合計</td>
+					<td><%= @order.price %>円</td>
+				</tr>
+			</tbody>
+		</table>
