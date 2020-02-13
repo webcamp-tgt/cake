@@ -1,0 +1,63 @@
+<div class="container">
+	<div class="row">
+		<h2>購入情報入力画面</h2>
+
+		<h3>支払方法</h3>
+		<%= form_for(@order,url:end_users_order_path, method: :PATCH) do |f| %>
+		<label>
+			<%= f.radio_button :payment_method, 0 %>クレジットカード
+		</label>
+		<label>
+			<%= f.radio_button :payment_method, 1 %>銀行振込
+		</label>
+		<% end %>
+
+		<h3>お届け先</h3>
+		<%= form_for(@,url:, method: :) do |f| %>
+		<laber>
+			<tr>
+				<th>
+					<%= f.radio_button :,  %>ご自身の住所
+				</th>
+			</tr>
+		</laber>
+		<tbody>
+			<tr>
+				<th>
+					<%= @end_user.address %>
+				</th>
+			</tr>
+		</tbody>
+
+		<laber>
+			<tr>
+				<th>
+					<%= f.radio_button :,  %>登録済み住所から
+				</th>
+			</tr>
+		</laber>
+		<tbody>
+			<tr>
+				<th>
+					<%= f.collection_select :, ShippingAddress.adders, :id, :name %>
+				</th>
+			</tr>
+		</tbody>
+
+		<laber>
+			<tr>
+				<th>
+					<%= f.radio_button :,  %>新しいお届け先
+				</th>
+			</tr>
+		</laber>
+		<tbody>
+			<tr>
+				<th>
+					<%= f.collection_select :address, ShippingAddress.adders, :id, :name %>
+				</th>
+			</tr>
+		</tbody>
+		<% end %>
+	</div>
+</div>

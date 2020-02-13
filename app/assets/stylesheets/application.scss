@@ -16,3 +16,47 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ * {
+ 	margin: 0;
+ 	padding: 0;
+ 	box-sizing: border-box;
+ }
+
+
+ .my-orange {color: #FFF3E0}
+
+ .header {
+ 	font-family: 'Creepster', cursive;
+ 	font-color: #FAFAFA;
+ 	text-align: center;
+ 	vertical-align: middle;
+ 	font-size: 300%;
+ 	padding-top: 20px;
+ }
+
+ header {
+ 	background-color: #FF9800;
+ 	background-size: 100%;
+ 	text-align: center;
+ }
+
+ h1 {
+ 	margin-top: auto;
+
+ }
+
+ footer {
+ 	background-color: #FFB74D;
+ 	text-align: center;
+ }
+
+a.black {
+	color: #000000;
+}
+
+.nav {
+	margin: 0 auto;
+}
+.list {
+	display: inline;
+}
