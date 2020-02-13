@@ -1,0 +1,21 @@
+<h1>会員編集画面</h1>
+<table>
+	<tbody>
+		<%= form_for(@end_user) do |f| %>
+		<tr>
+			<td>会員ID</td>
+			<td><%= @end_user.id %></td>
+		</tr>
+		<tr>
+			<td>氏名</td>
+			<td><%= f.text_field, :first_name %></td>
+			<td><%= f.text_field, :last_name %></td>
+		</tr>
+		<tr>
+			<td>フリガナ</td>
+			<td><%= f.text_field, :first_name_kana %></td>
+			<td><%= f.text_field, :last_name_kana %></td>
+		
+		</tr>
+	</tbody>
+</table>
