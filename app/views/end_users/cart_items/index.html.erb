@@ -5,7 +5,7 @@
 		<thead>
 			<tr>
 				<th>商品名</th>
-				<th>単価(税抜)</th>
+				<th>単価(税込)</th>
 				<th>数量</th>
 				<th>小計</th>
 				<th></th>
@@ -20,13 +20,13 @@
 					<%= cart.items.price %>
 				</tb>
 				<tb>
-					<%= "" %>
+					<%= cart.number_field :quantity %>
 				</tb>
 				<tb>
 					<%= "" %>
 				</tb>
 				<tb>
-					<%= "" %>
+					<%= link_to "削除" end_users_cart_items_path, method: :deleat %>
 				</tb>
 			</tr>
 			<% end %>
@@ -39,7 +39,7 @@
 				</tb>
 				<tb>
 					<!-- 合計金額が表示される様に変更 -->
-					<%= "合計金額" %>
+					<%= @total %>
 				</tb>
 			</tr>
 		</thead>
