@@ -11,7 +11,7 @@ class EndUsers::OrdersController < ApplicationController
     	@claim_total = @order.total_amount + @order.shipping_cost
     	@subtotal = @order.order_item.price_tax * @order.order_item.order_quantity
     end
-    end
+
 
 
 end

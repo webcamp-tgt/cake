@@ -11,22 +11,25 @@
 				<th></th>
 			</tr>
 
-			<%= @cart_item.each do |cart| %>
+			<% @cart_items.each do |cart_item| %>
 			<tr>
 				<tb>
-					<%= cart.items.name %>
+					<%= cart_item.item.name %>
 				</tb>
 				<tb>
-					<%= cart.items.price %>
+					<%= cart_item.item.price %>
 				</tb>
 				<tb>
-					<%= "" %>
+					<%= form_for(@item, url:end_users_cart_items_path,method: :post) do |f| %>
+					<%= cart_item.quantity %>
+					<%= f.number_field : %>
+					<% end %>
 				</tb>
 				<tb>
-					<%= "" %>
+					<%= "@subtotal" %>
 				</tb>
 				<tb>
-					<%= "" %>
+					<%= link_to "削除する" %>
 				</tb>
 			</tr>
 			<% end %>
