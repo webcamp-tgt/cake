@@ -9,16 +9,16 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td><% link_to "ケーキ",end_users_path(@item.genre_id) %></td>
+						<td><%= link_to "ケーキ","http://localhost:3000/end_users/genres/2/items" %></td>
 					</tr>
 					<tr>
-						<td><% link_to "焼き菓子",end_users_path() %></td>
+						<td><%= link_to "焼き菓子","http://localhost:3000/end_users/genres/3/items"%></td>
 					</tr>
 					<tr>
-						<td><% link_to "プリン",end_users_path() %></td>
+						<td><%= link_to "プリン","http://localhost:3000/end_users/genres/4/items"%></td>
 					</tr>
 					<tr>
-						<td><% link_to "キャンディ",end_users_path() %></td>
+						<td><%= link_to "キャンディ","http://localhost:3000/end_users/genres/5/items" %></td>
 					</tr>
 				</tbody>
 			</table>
@@ -30,8 +30,9 @@
 				<p>¥<%= @item.price %>(税込)</p>
 			</div>
 
-			<%= form_for(@cart_item, url:end_users_cart_items_path) do |f| %>
-			<%= f.label :quantity %>
+			<%= form_for(@cart_item, url:end_users_cart_items_path,method: :post) do |f| %>
+			<%= f.hidden_field :item_id, :value => @item.id %>
+			<%= f.label "数量" %>
 			<%= f.select :quantity,(1..30).to_a %>
 			<%= f.submit "カートに入れる" %>
 			<% end %>

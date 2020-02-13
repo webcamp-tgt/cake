@@ -17,19 +17,19 @@ def edit
     	if @shipping_address.end_user_id != current_user.id
     		redirect_to end_users_orders_path
     	end
-    end
+end
 
-    def update
-    	@shipping_address = Shipping_address.find(params[:id])
-    	@shipping_address.end_user_id = current_user.id
-    	@shipping_address.update(shipping_address_params)
-    end
+def update
+	@shipping_address = Shipping_address.find(params[:id])
+	@shipping_address.end_user_id = current_user.id
+	@shipping_address.update(shipping_address_params)
+end
 
-    def destroy
-    	shipping_address = Shipping_address.find(params[:id])
-    	shipping_address.destroy
-    	redirect_to end_users_orders_path
-    end
+def destroy
+	shipping_address = Shipping_address.find(params[:id])
+	shipping_address.destroy
+	redirect_to end_users_orders_path
+end
 
 private
     def shipping_address_params
