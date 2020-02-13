@@ -1,7 +1,7 @@
 class EndUsers::CartItemsController < ApplicationController
 	def index
 		@cart_items = CartItem.all
-		@item = Item.new
+		@order_item = OrderItem.new
 	end
 
 	def create
