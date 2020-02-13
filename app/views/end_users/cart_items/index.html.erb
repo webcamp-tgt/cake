@@ -1,58 +1,66 @@
 <div class="container">
 	<div class="row">
 		<h2>ショッピングカート</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>商品名</th>
+					<th>単価(税込)</th>
+					<th>数量</th>
+					<th>小計</th>
+					<th></th>
+				</tr>
+			</thead>
 
-		<thead>
-			<tr>
-				<th>商品名</th>
-				<th>単価(税込)</th>
-				<th>数量</th>
-				<th>小計</th>
-				<th></th>
-			</tr>
+			<tbody>
+				<% @sum = 0 %>
+				<% @cart_items.each do |cart_item| %>
+				<tr>
+					<td>
+						<%= cart_item.item.name %>
+					</td>
+					<td>
+						<%= cart_item.item.price %>
+					</td>
+					<td>
 
-			<% @cart_items.each do |cart_item| %>
-			<tr>
-				<tb>
-					<%= cart_item.item.name %>
-				</tb>
-				<tb>
-					<%= cart_item.item.price %>
-				</tb>
-				<tb>
-
-					<%= form_for(@order_item, url:end_users_cart_items_path,method: :post) do |f| %>
-					<%= cart_item.quantity %>
-					<%= f.number_field :order_quantity %>
-					<%= f.submit "変更する" %>
-					<% end %>
+						<%= form_for(cart_item, url:end_users_cart_item_path(cart_item),method: :patch) do |f| %>
+						<%= cart_item.quantity %>
+						<%= f.number_field :quantity %>
+						<%= f.submit "変更する" %>
+						<% end %>
 
 
 
-				</tb>
-				<tb>
-					<%= "@subtotal" %>
-				</tb>
-				<tb>
 
-					<%= link_to "削除", end_users_cart_items_path, method: :delete %>
+					</td>
+					<td>
+						<%= cart_item.item.price * cart_item.quantity %>
+					</td>
+					<td>
 
-				</tb>
-			</tr>
-			<% end %>
-		</thead>
+						<%= link_to "削除", end_users_cart_item_path(cart_item), method: :delete %>
 
-		<thead>
-			<tr>
-				<tb>
-					合計金額
-				</tb>
-				<tb>
-					<!-- 合計金額が表示される様に変更 -->
-					<%= @total %>
-				</tb>
-			</tr>
-		</thead>
+					</td>
+				</tr>
+				<%= @sum += cart_item.item.price * cart_item.quantity %>
+				<% end %>
+			</tbody>
+		</table>
+
+		<table>
+			<tbody>
+				<tr>
+					<td>
+						合計金額
+					</td>
+					<td>
+						<!-- 合計金額が表示される様に変更 -->
+						<%= @sum %>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 
 </div>

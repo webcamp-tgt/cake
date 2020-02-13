@@ -1,8 +1,4 @@
 class EndUsers::CartItemsController < ApplicationController
-	def index
-		@cart_items = CartItem.all
-		@order_item = OrderItem.new
-	end
 
 	def create
 		@cart_item = CartItem.new(cart_item_params)
@@ -11,11 +7,21 @@ class EndUsers::CartItemsController < ApplicationController
 		redirect_to end_users_cart_items_path
 	end
 
+	def index
+		@cart_items = CartItem.all
+		@order_item = OrderItem.new
+	end
 
 	def update
+		@cart_item = CartItem.find(params[:id])
+		@cart_item.update(cart_item_params)
+		redirect_to end_users_cart_items_path
 	end
 
 	def destroy
+		cart_item = CartItem.find(params[:id])
+		cart_item.destroy
+		redirect_to end_users_cart_items_path
 	end
 
 	def empty_cart
