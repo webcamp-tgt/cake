@@ -19,7 +19,7 @@
     <ul class="">
       <% if end_user_signed_in? %>
       <li class="list">
-        <%= link_to 'My.Page', end_users_end_user_path, class: "glyphicon glyphicon-user black" %>
+        <%= link_to 'My.Page', end_users_end_user_path(current_end_user.id), class: "glyphicon glyphicon-user black" %>
       </li>
       <li class="list">
         <%= link_to 'About', end_users_homes_about_path, class: "glyphicon glyphicon-link about black" %>
