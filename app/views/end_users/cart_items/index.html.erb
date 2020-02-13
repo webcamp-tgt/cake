@@ -5,7 +5,7 @@
 		<thead>
 			<tr>
 				<th>商品名</th>
-				<th>単価(税抜)</th>
+				<th>単価(税込)</th>
 				<th>数量</th>
 				<th>小計</th>
 				<th></th>
@@ -20,16 +20,22 @@
 					<%= cart_item.item.price %>
 				</tb>
 				<tb>
+
 					<%= form_for(@item, url:end_users_cart_items_path,method: :post) do |f| %>
 					<%= cart_item.quantity %>
 					<%= f.number_field : %>
 					<% end %>
+
+
+
 				</tb>
 				<tb>
 					<%= "@subtotal" %>
 				</tb>
 				<tb>
-					<%= link_to "削除する" %>
+
+					<%= link_to "削除" end_users_cart_items_path, method: :deleat %>
+
 				</tb>
 			</tr>
 			<% end %>
@@ -42,9 +48,17 @@
 				</tb>
 				<tb>
 					<!-- 合計金額が表示される様に変更 -->
-					<%= "合計金額" %>
+					<%= @total %>
 				</tb>
 			</tr>
 		</thead>
 	</div>
+
 </div>
+
+</div>
+
+<%= link_to "買い物を続ける" end_users_items_path %>
+
+<%= link_to "情報入力に進む" new_end_users_order_path %>
+
