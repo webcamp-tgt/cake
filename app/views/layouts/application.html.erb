@@ -17,7 +17,7 @@
   <h1 class="header">NAGANO<i class="fas fa-birthday-cake my-orange fa-2x fa-fw faa-float animated"></i>Cake</h1>
   <nav class="">
     <ul class="">
-      <% if end_user_signed_in? %>list
+      <% if end_user_signed_in? %>
       <li class="list">
         <%= link_to 'My.Page', end_users_end_user_path(current_end_user.id), class: "glyphicon glyphicon-user black" %>
       </li>
