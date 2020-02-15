@@ -14,7 +14,7 @@
 
 <body>
   <header>
-  <h1 class="header">Ngano<i class="fas fa-birthday-cake my-orange fa-2x fa-fw faa-float animated"></i>Cake</h1>
+  <h1 class="header">NAGANO<i class="fas fa-birthday-cake my-orange fa-2x fa-fw faa-float animated"></i>Cake</h1>
   <nav class="">
     <ul class="">
       <% if end_user_signed_in? %>
@@ -31,30 +31,30 @@
         <%= link_to 'Cart', end_users_cart_items_path, class: "glyphicon glyphicon-shopping-cart black" %>
       </li>
       <% elsif admin_signed_in? %>
-      <li class="">
+      <li class="list">
         <%= link_to '商品一覧', admins_items_path, class: "glyphicon glyphicon-th black" %>
       </li>
-      <li class="">
+      <li class="list">
         <%= link_to '会員一覧', admins_end_users_path, class: "glyphicon glyphicon-user black" %>
       </li>
-      <li class="">
+      <li class="list">
         <%= link_to '注文履歴一覧' , class: "glyphicon glyphicon-th-list black"%>
       </li>
-      <li class="">
+      <li class="list">
         <%= link_to 'ジャンル管理', admins_genres_path, class: "glyphicon glyphicon-tag black" %>
       </li>
-      <li class="">
+      <li class="list">
         <%= link_to 'Logout', destroy_end_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out black" %>
       </li>
 
       <% else %>
-      <li class="">
+      <li class="list">
         <%= link_to ' Login', new_end_user_session_path, class: "glyphicon glyphicon-log-in black" %>
       </li>
-      <li class="">
+      <li class="list">
         <%= link_to ' Signin', new_end_user_registration_path,class: "glyphicon glyphicon-edit sign_up black" %>
       </li>
-      <li class="">
+      <li class="list">
         <%= link_to 'About', homes_about_path, class: "glyphicon glyphicon-link about black" %>
       </li>
       <% end %>
