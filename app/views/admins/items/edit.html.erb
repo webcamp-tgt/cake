@@ -18,7 +18,7 @@
 				<%= f.text_field :price%>
 
 				<label>販売ステータス</label>
-				<%= f.select :sale_status, [["販売中", "0"], ["販売休止中", "1"]] %>
+				<%= f.select :sale_status, Item.sale_statuses.keys, {} %>
 				<%= f.submit "保存" %>
 				<% end %>
 			</div>
