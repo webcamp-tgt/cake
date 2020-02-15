@@ -22,15 +22,16 @@ Rails.application.routes.draw do
 
   namespace :end_users do
   	#end_usersのルートを下記に書く
-    resources :end_users
-    resources :orders
-    resources :items
-    resources :shipping_addresses
     get 'homes/top'
     get 'homes/about'
     get "genres/:genre_id/items" => "items#index"
     get "items/:id" => "items#show"
-
+    get "orders/confirm" => "orders#confirm"
+    get "orders/thanks" => "orders#thanks"
+    resources :end_users
+    resources :orders
+    resources :items
+    resources :shipping_addresses
 
     resources :cart_items, only: [:index, :create, :update, :destroy]
     get 'cart_items/empty_cart' => "cart_items#empty_cart"
