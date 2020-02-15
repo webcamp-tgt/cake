@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_14_042451) do
+
+ActiveRecord::Schema.define(version: 2020_02_15_022312) do
+
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -49,7 +51,12 @@ ActiveRecord::Schema.define(version: 2020_02_14_042451) do
     t.string "phone_number"
     t.boolean "is_deleted"
     t.string "full_name"
+
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_end_users_on_deleted_at"
+
     t.integer "menber_status", default: 0
+
     t.index ["email"], name: "index_end_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_end_users_on_reset_password_token", unique: true
   end
@@ -85,7 +92,7 @@ ActiveRecord::Schema.define(version: 2020_02_14_042451) do
   create_table "orders", force: :cascade do |t|
     t.integer "end_user_id"
     t.integer "shipping_cost"
-    t.integer "payment_method", null: false
+    t.integer "payment_method"
     t.string "zip_code"
     t.string "address"
     t.string "order_name"
