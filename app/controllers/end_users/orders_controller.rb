@@ -3,11 +3,6 @@ class EndUsers::OrdersController < ApplicationController
     	@order = Order.new
     end
 
-    def create
-    	# 注文処理
-    	redirect_to end_users_orders_thanks_path
-    end
-# ここまで
     def index
         @orders = Order.all
     end
@@ -25,11 +20,19 @@ class EndUsers::OrdersController < ApplicationController
     	@order.payment_method = params[:order][:payment_method].to_i
     	if params[:adress_select] == "1"
     		# 自分の住所
+
     	elsif params[:adress_select] == "2"
     		# セレクトで選んだ住所
+
     	else
     		# フォームに書いた住所
+    		
     	end
+    end
+
+    def create
+    	# 注文処理
+    	redirect_to end_users_orders_thanks_path
     end
 
     def thanks

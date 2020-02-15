@@ -1,6 +1,6 @@
 <body>
 	<h2>配送先登録/一覧</h2>
-	<%= form_for(@shipping_address,url:end_users_orders_path, method: :post)  do |f| %>
+	<%= form_for(@shipping_address,url:end_users_shipping_addresses_path, method: :post)  do |f| %>
 	<table>
 		<thead>
 			<tr>
@@ -45,8 +45,8 @@
 					<%= shipping_address.order_name %>
 				</td>
 				<td>
-					<%= link_to "編集する", edit_end_users_order(order.id) %>
-					<%= link_to "削除する", end_users_order(order.id),method: :delete %>
+					<%= link_to "編集する", edit_end_users_shipping_address_path(shipping_address) %>
+					<%= link_to "削除する", end_users_shipping_address_path(shipping_address),method: :delete %>
 				</td>
 			</tr>
 			<% end %>
