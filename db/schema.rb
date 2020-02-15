@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2020_02_15_022312) do
     t.string "name"
     t.string "description"
     t.integer "price"
-    t.integer "sale_status", null: false
+    t.integer "sale_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2020_02_15_022312) do
   create_table "orders", force: :cascade do |t|
     t.integer "end_user_id"
     t.integer "shipping_cost"
-    t.integer "payment_method"
+    t.integer "payment_method", null: false
     t.string "zip_code"
     t.string "address"
     t.string "order_name"
