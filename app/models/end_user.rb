@@ -8,7 +8,23 @@ class EndUser < ApplicationRecord
   has_many :orders,dependent: :destroy
   has_many :shipping_addresses,dependent: :destroy
 
+  enum menber_status: [:有効, :退会済み]
+
   def full_name
   	[first_name, last_name].join('')
+  end
+
+  acts_as_paranoid
+
+  def soft_delete
+    update_attribute(:deleted_at, Time.current)
+  end
+
+  def active_for_authentication?
+    super && !deleted_at
+  end
+
+  def inactive_massage
+    !deleted_at ? super : deleted_account
   end
 end

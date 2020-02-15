@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get 'admins/top' => 'admins/homes#top'
   # root to: 'admins#top'
   devise_for :end_users,  :controllers => {
-    :sessions => 'end_users/sessions',
     :registrations => 'end_users/registrations'
   }
   devise_for :admins,  :controllers => {

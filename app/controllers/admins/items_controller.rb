@@ -16,8 +16,8 @@ class Admins::ItemsController < ApplicationController
     @item = Item.new(item_params)
     # binding.pry
     @item.genre_id = params[:item][:genre_id]
-    @item.save!
-    redirect_to root_path
+    @item.save
+    redirect_to admins_item_path(@item.id)
   end
 
   def edit
@@ -26,7 +26,7 @@ class Admins::ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    @item.update!(item_params)
+    @item.update(item_params)
     redirect_to admins_item_path(@item)
   end
 

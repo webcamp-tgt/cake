@@ -8,8 +8,13 @@ class EndUsers::CartItemsController < ApplicationController
 	end
 
 	def index
-		@cart_items = CartItem.all
 		@order_item = OrderItem.new
+		@cart_items = current_end_user.cart_items
+		@sum = 0
+		@cart_items.each do |cart_item|
+			@sum += cart_item.item.price * cart_item.quantity
+		end
+
 	end
 
 	def update
@@ -25,8 +30,8 @@ class EndUsers::CartItemsController < ApplicationController
 	end
 
 	def empty_cart
-		cart_item = CartItem.all
-		cart_item.destroy
+		cart_items = CartItem.all
+		current_end_user.cart_items.destroy_all
 		redirect_to end_users_cart_items_path
 	end
 
