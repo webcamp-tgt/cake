@@ -13,4 +13,5 @@ class Order < ApplicationRecord
 	def total
 		total_price + shipping_cost
 	end
+	enum payment_method: {クレジットカード: 0, 銀行振込: 1}
 end

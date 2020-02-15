@@ -25,6 +25,9 @@ class EndUsers::CartItemsController < ApplicationController
 	end
 
 	def empty_cart
+		cart_item = CartItem.all
+		cart_item.destroy
+		redirect_to end_users_cart_items_path
 	end
 
 	private
