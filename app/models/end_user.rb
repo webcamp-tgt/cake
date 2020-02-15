@@ -14,7 +14,11 @@ class EndUser < ApplicationRecord
   	[first_name, last_name].join('')
   end
 
+
+
   acts_as_paranoid
+
+
 
   def soft_delete
     update_attribute(:deleted_at, Time.current)
@@ -27,4 +31,7 @@ class EndUser < ApplicationRecord
   def inactive_massage
     !deleted_at ? super : deleted_account
   end
+
+
 end
+

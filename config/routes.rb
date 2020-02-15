@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'admins/top' => 'admins/homes#top'
   # root to: 'admins#top'
   devise_for :end_users,  :controllers => {
+    :sessions => 'end_users/sessions',
     :registrations => 'end_users/registrations'
   }
   devise_for :admins,  :controllers => {
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
     get "items/:id" => "items#show"
     get "orders/confirm" => "orders#confirm"
     get "orders/thanks" => "orders#thanks"
+    get "end_users/unsubscribe"
     resources :end_users
     resources :orders
     resources :items

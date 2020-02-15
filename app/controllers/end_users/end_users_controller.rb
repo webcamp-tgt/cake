@@ -1,8 +1,8 @@
 class EndUsers::EndUsersController < ApplicationController
 
 	def show
-	    @end_user = EndUser.find(params[:id])
-	    # @end_user.id = current_user.id
+		@end_user = EndUser.find(params[:id])
+		@end_user.id = current_end_user.id
 	end
 	def edit
 		@end_user = EndUser.find(params[:id])
@@ -13,9 +13,11 @@ class EndUsers::EndUsersController < ApplicationController
 		redirect_to end_users_end_user_path(@end_user.id)
 	end
 	def destroy
-		
+		end_user = EndUser.find(params[:id])
+		end_user.destroy
+		redirect_to end_users_homes_top_path
 	end
-	
+
 	private
 	def end_user_params
 		params.require(:end_user).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :zip_code, :address, :phone_number, :email)
