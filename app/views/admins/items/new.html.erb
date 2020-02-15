@@ -3,7 +3,7 @@
 
 		<h2>商品 新規登録画面</h2>
 
-		<%= form_for(@item,url: admins_items_path,method: :post) do |f| %>
+		<%= form_for(@item,url: admins_items_path, method: :post) do |f| %>
 		<%= f.attachment_field :image %>
 
 		<div class= "pull-right col-xs-8">
@@ -30,7 +30,7 @@
 				<li>
 
 					<label>販売ステータス</label>
-					<%= f.select :sale_status, [["販売中", "0"], ["販売休止中", "1"]] %>
+					<%= f.select :sale_status, Item.sale_statuses.keys, {prompt: '選択してください'} %>
 				</li>
 				<li>
 
