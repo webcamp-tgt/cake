@@ -8,7 +8,7 @@ class EndUser < ApplicationRecord
   has_many :orders,dependent: :destroy
   has_many :shipping_addresses,dependent: :destroy
 
-  enum menber_status: [:有効, :退会済み]
+  enum member_status: [:有効, :退会済み]
 
   def full_name
   	[first_name, last_name].join('')
