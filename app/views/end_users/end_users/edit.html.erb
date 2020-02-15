@@ -1,36 +1,41 @@
-<h1>登録情報編集</h1><div>退会する</div>
-<table>
-	<tbody>
-		<%= form_for(@end_user, url:end_users_end_user_path(@end_user.id)) do |f| %>
-		<tr>
-			<td>氏名</td>
-			<td><%= f.text_field :first_name %></td>
-			<td><%= f.text_field :last_name %></td>
-		</tr>
-		<tr>
-			<td>カナ</td>
-			<td><%= f.text_field :first_name_kana %></td>
-			<td><%= f.text_field :last_name_kana%></td>
-		</tr>
-		<tr>
-			<td>郵便番号</td>
-			<td><%= f.text_field :zip_code %></td>
-		</tr>
-		<tr>
-			<td>住所</td>
-			<td><%= f.text_field :address %></td>
-		</tr>
-		<tr>
-			<td>電話番号</td>
-			<td><%= f.text_field :phone_number %></td>
-		</tr>
-		<tr>
-			<td>メールアドレス</td>
-			<td><%= f.text_field :email %></td>
-		</tr>
-		<tr>
-			<td><%= f.submit "編集内容を保存する" %></td>
-		</tr>
-		<% end %>
-	</tbody>
-</table>
+<div class="container">
+	<div class="row">
+		<h2>登録情報編集</h2>
+		<%= link_to "退会する", end_users_end_users_unsubscribe_path %>
+		<table>
+			<tbody>
+				<%= form_for(@end_user, url:end_users_end_user_path(@end_user.id)) do |f| %>
+				<tr>
+					<td>氏名</td>
+					<td><%= f.text_field :first_name %></td>
+					<td><%= f.text_field :last_name %></td>
+				</tr>
+				<tr>
+					<td>カナ</td>
+					<td><%= f.text_field :first_name_kana %></td>
+					<td><%= f.text_field :last_name_kana%></td>
+				</tr>
+				<tr>
+					<td>郵便番号</td>
+					<td><%= f.text_field :zip_code %></td>
+				</tr>
+				<tr>
+					<td>住所</td>
+					<td><%= f.text_field :address %></td>
+				</tr>
+				<tr>
+					<td>電話番号</td>
+					<td><%= f.text_field :phone_number %></td>
+				</tr>
+				<tr>
+					<td>メールアドレス</td>
+					<td><%= f.text_field :email %></td>
+				</tr>
+				<tr>
+					<td><%= f.submit "編集内容を保存する" %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
