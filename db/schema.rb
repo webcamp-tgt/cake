@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_02_15_022312) do
     t.string "phone_number"
     t.boolean "is_deleted"
     t.string "full_name"
+    t.integer "member_status", default: 0
     t.datetime "deleted_at"
     t.integer "menber_status", default: 0
     t.index ["deleted_at"], name: "index_end_users_on_deleted_at"
