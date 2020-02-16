@@ -49,9 +49,8 @@ ActiveRecord::Schema.define(version: 2020_02_15_022312) do
     t.string "phone_number"
     t.boolean "is_deleted"
     t.string "full_name"
-    t.integer "member_status", default: 0
-    t.datetime "deleted_at"
     t.integer "menber_status", default: 0
+    t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_end_users_on_deleted_at"
     t.index ["email"], name: "index_end_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_end_users_on_reset_password_token", unique: true
