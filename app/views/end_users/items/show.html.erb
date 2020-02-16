@@ -1,42 +1,44 @@
+<body class= "userbody">
 <div class="container">
 	<div class="row">
 		<body>
-			<table class="genres_sarch">
+			<table class="genres_sarch col-xs-3">
 				<thead>
 					<tr>
-						<th>ジャンル検索</th>
+						<th class= "itemtext">ジャンル検索</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td><%= link_to "ケーキ","http://localhost:3000/end_users/genres/2/items" %></td>
+						<td class= "genre1"><%= link_to "ケーキ","http://localhost:3000/end_users/genres/2/items" %></td>
 					</tr>
 					<tr>
-						<td><%= link_to "焼き菓子","http://localhost:3000/end_users/genres/3/items"%></td>
+						<td class= "genre2"><%= link_to "焼き菓子","http://localhost:3000/end_users/genres/3/items"%></td>
 					</tr>
 					<tr>
-						<td><%= link_to "プリン","http://localhost:3000/end_users/genres/4/items"%></td>
+						<td class= "genre3"><%= link_to "プリン","http://localhost:3000/end_users/genres/4/items"%></td>
 					</tr>
 					<tr>
-						<td><%= link_to "キャンディ","http://localhost:3000/end_users/genres/5/items" %></td>
+						<td class= "genre4"><%= link_to "キャンディ","http://localhost:3000/end_users/genres/5/items" %></td>
 					</tr>
 				</tbody>
 			</table>
 
-			<div class="item_image">
-				<%= attachment_image_tag @item, :image, size: 50, fallback:"no_image.jpg"%>
+			<div class="item_image col-xs-8">
+				<%= attachment_image_tag @item, :image, size: 200, fallback:"no_image.jpg"%>
 				<%= @item.name %>
 				<%= @item.description %>
 				<p>¥<%= @item.price %>(税込)</p>
-			</div>
 
 			<%= form_for(@cart_item, url:end_users_cart_items_path,method: :post) do |f| %>
 			<%= f.hidden_field :item_id, :value => @item.id %>
 			<%= f.label "数量" %>
 			<%= f.select :quantity,(1..30).to_a %>
-			<%= f.submit "カートに入れる" %>
+			<%= f.submit "カートに入れる", class: "itemcart"%>
 			<% end %>
+			</div>
 
 		</body>
 	</div>
 </div>
+</body>

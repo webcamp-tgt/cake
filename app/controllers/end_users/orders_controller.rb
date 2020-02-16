@@ -24,9 +24,9 @@ class EndUsers::OrdersController < ApplicationController
     	@order.payment_method = params[:order][:payment_method].to_i
     	if params[:adress_select] == "1"
     		# 自分の住所
-            current_end_user.zip_code
-            current_end_user.address
-            current_end_user.order_name
+            #current_end_user.zip_code
+            #current_end_user.address
+            #current_end_user.order_name
     	elsif params[:adress_select] == "2"
     		# セレクトで選んだ住所
 
@@ -41,7 +41,7 @@ class EndUsers::OrdersController < ApplicationController
         #　カートの商品を持ってくる記述を追記
     	@order = Order.new (order_params)
         @order.end_user_id = current_end_user.id
-        @order. = current_end_user.cart.items
+        #@order. = current_end_user.cart.items
     	@order.save
     	redirect_to end_users_orders_thanks_path
     end

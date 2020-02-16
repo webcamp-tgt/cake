@@ -1,56 +1,60 @@
 <body>
-	<h2>配送先登録/一覧</h2>
-	<%= form_for(@shipping_address,url:end_users_shipping_addresses_path, method: :post)  do |f| %>
-	<table>
-		<thead>
-			<tr>
-				<th>郵便番号</th>
-				<td><%= f.text_field :zip_code %></td>
-			</tr>
-			<tr>
-				<th>住所</th>
-				<td><%= f.text_field :address %></td>
-			</tr>
-			<tr>
-				<th>宛名</th>
-				<td><%= f.text_field :order_name %></td>
-			</tr>
-		</thead>
-	</table>
-	<button >
-	<%= f.submit "登録する" %>
-	</button>
-	<% end %>
-
-
-	<table>
-		<thead>
-			<tr>
-				<th>郵便番号</th>
-				<th>住所</th>
-				<th>宛名</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @shipping_addresses.each do |shipping_address| %>
-			<tr>
-				<td>
-					<%= shipping_address.zip_code %>
-	 			</td>
-				<td>
-					<%= shipping_address.address %>
-			    </td>
-				<td>
-					<%= shipping_address.order_name %>
-				</td>
-				<td>
-					<%= link_to "編集する", edit_end_users_shipping_address_path(shipping_address) %>
-					<%= link_to "削除する", end_users_shipping_address_path(shipping_address),method: :delete %>
-				</td>
-			</tr>
+	<div class="container">
+		<div class="row">
+			<h2>配送先登録/一覧</h2>
+			<%= form_for(@shipping_address,url:end_users_shipping_addresses_path, method: :post)  do |f| %>
+			<table>
+				<thead>
+					<tr>
+						<th>郵便番号</th>
+						<td><%= f.text_field :zip_code %></td>
+					</tr>
+					<tr>
+						<th>住所</th>
+						<td><%= f.text_field :address %></td>
+					</tr>
+					<tr>
+						<th>宛名</th>
+						<td><%= f.text_field :order_name %></td>
+					</tr>
+				</thead>
+			</table>
+			<button >
+				<%= f.submit "登録する" %>
+			</button>
 			<% end %>
-		</tbody>
-	</table>
+
+
+			<table>
+				<thead>
+					<tr>
+						<th>郵便番号</th>
+						<th>住所</th>
+						<th>宛名</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @shipping_addresses.each do |shipping_address| %>
+					<tr>
+						<td>
+							<%= shipping_address.zip_code %>
+						</td>
+						<td>
+							<%= shipping_address.address %>
+						</td>
+						<td>
+							<%= shipping_address.order_name %>
+						</td>
+						<td>
+							<%= link_to "編集する", edit_end_users_shipping_address_path(shipping_address) %>
+							<%= link_to "削除する", end_users_shipping_address_path(shipping_address),method: :delete %>
+						</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
 
 </body>
