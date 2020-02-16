@@ -42,7 +42,7 @@ class EndUsers::OrdersController < ApplicationController
         #　カートの商品を持ってくる記述を追記
     	@order = Order.new(order_params)
         @order.end_user_id = current_end_user.id
-        
+
     	@order.save
     	redirect_to end_users_orders_thanks_path
     end
