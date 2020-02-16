@@ -24,11 +24,11 @@ Rails.application.routes.draw do
   	#end_usersのルートを下記に書く
     get 'homes/top'
     get 'homes/about'
-    get "genres/:genre_id/items" => "items#index"
-    get "items/:id" => "items#show"
+    get "genres/:id/items" => "items#genre"
     get "orders/confirm" => "orders#confirm"
     get "orders/thanks" => "orders#thanks"
     get "end_users/unsubscribe"
+
     resources :end_users
     resources :orders
     resources :items
