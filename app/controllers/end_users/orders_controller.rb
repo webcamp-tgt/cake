@@ -13,9 +13,7 @@ class EndUsers::OrdersController < ApplicationController
     end
 
     def confirm
-    	@order = Order.new
-        @order.payment_method = params[:order][:payment_method].to_i
-    	if params[:adress_select] == "1"
+    	if params[:address_select] == "1"
     		# もし１つ目を選択したら自分の住所
             @order = Order.new
             @order.zip_code = current_end_user.zip_code
@@ -23,7 +21,7 @@ class EndUsers::OrdersController < ApplicationController
             @order.order_name = current_end_user.full_name
             @order.payment_method = params[:order][:payment_method].to_i
 
-        elsif params[:adress_select] == "2"
+        elsif params[:address_select] == "2"
     		# もし２つ目を選択したらセレクトで選んだ住所
             @address = ShippingAddress.find(params[:order][:address_id])
             @order = Order.new
