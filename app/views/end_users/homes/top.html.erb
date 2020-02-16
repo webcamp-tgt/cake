@@ -1,28 +1,21 @@
-<body class= "userbody">
-	<div class="container">
-		<div class="row">
-			<table class="genres_sarch col-xs-3">
-				<thead >
+
+<div class="container">
+	<div class="row">
+		<table class="genres_sarch col-xs-3">
+			<thead>
+				<tr>
+					<th class= "toptext">ジャンル検索</th>
+				</tr>
+			</thead>
+			<tbody>
+					<% @genres.each do |genre| %>
 					<tr>
-						<th class= "toptext">ジャンル検索</th>
+						<td><%= link_to genre.name,end_users_path(genre.id) %></td>
 					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><%= link_to "ケーキ","http://localhost:3000/end_users/genres/2/items", class: "genre1" %></td>
-					</tr>
-					<tr>
-						<td><%= link_to "焼き菓子","http://localhost:3000/end_users/genres/3/items", class: "genre2" %></td>
-					</tr>
-					<tr>
-						<td><%= link_to "プリン","http://localhost:3000/end_users/genres/4/items", class: "genre3" %></td>
-					</tr>
-					<tr>
-						<td><%= link_to "キャンディ","http://localhost:3000/end_users/genres/5/items", class: "genre4" %></td>
-					</tr>
+					<% end %>
 				</tbody>
-			</table>
-			<div class= "col-xs-9">
+		</table>
+		<div class= "col-xs-9">
 				<h1 class= "toptext">一覧(全<%= @items.count %>件)</h1>
 				<% @items.each do |item| %>
 				<div class="item-box col-xs-3" style="margin-right: 30px;">

@@ -1,32 +1,42 @@
 
 <div class="container">
 	<div class="row">
-		<body>
-			<h2>注文履歴一覧</h2>
-			<table>
-				<thead>
-					<tr>
-						<th>注文日</th>
-						<th>配送先</th>
-						<th>注文商品</th>
-						<th>支払い金額</th>
-						<th>ステータス</th>
-						<th>注文詳細</th>
-					</tr>
-				</thead>
-				<tbody>
-					<% @orders.each do |order| %>
-					<tr>
-						<td><%= order.created_at.strftime('%Y/%m/%d')  %></td>
-						<td><%= order.zip_code %>
-							<%= order.address %>
-							<%= order.order_name %>
-						</td>
-						<td><%= link_to "表示する",end_users_order_path(order) %></td>
-					</tr>
-					<% end %>
-				</tbody>
-			</table>
-		</body>
+
+<body>
+	<h2>注文履歴一覧</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>注文日</th>
+				<th>配送先</th>
+				<th>注文商品</th>
+				<th>支払い金額</th>
+				<th>ステータス</th>
+				<th>注文詳細</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @orders.each do |order| %>
+			<tr>
+				<td><%= order.created_at.strftime('%Y/%m/%d')  %></td>
+				<td><%= order.zip_code %><br>
+					<%= order.address %><br>
+					<%= order.order_name %>
+				</td>
+
+
+				<!-- 下記の３行を訂正 -->
+				<td><%= "注文商品名をここに表示" %></td>
+				<td><%= order.total_amount %></td>
+				<td><%= "注文ステータスをここに表示" %></td>
+
+
+
+				<td><%= link_to "表示する",end_users_order_path(order) %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</body>
 	</div>
 </div>
