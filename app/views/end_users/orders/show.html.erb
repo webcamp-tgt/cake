@@ -9,7 +9,7 @@
 		<tbody>
 			<tr>
 				<th>注文日</th>
-				<td><%= @order.create_at %></td>
+				<td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
 			</tr>
 			<tr>
 				<th>配送先</th>
@@ -24,7 +24,7 @@
 				<td><%= @order.payment_method %></td>
 			</tr>
 			<tr>
-				<th>ステータス/th>
+				<th>ステータス</th>
 				<td><%= @order.order_status %></td>
 			</tr>
 		</tbody>
@@ -48,7 +48,7 @@
 			</tr>
 			<tr>
 				<th>ご請求額</th>
-				<td><%= @total %></td>
+				<td><%= @order.total_amount + 800 %></td>
 			</tr>
 		</tbody>
 	</table>
@@ -66,10 +66,10 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><%= @order.order_item.name %></td>
-				<td><%= @order.order_item.price_tax %></td>
-				<td><%= @order.order_item.order_quantity %></td>
-				<td><%= @subtotal %></td>
+				<td><%= @order.order_items.name %></td>
+				<td><%= @order.order_items.price_tax %></td>
+				<td><%= @order.order_items.order_quantity %></td>
+				<td><%= @order.order_items.price_tax * @order.order_items.order_quantity %></td>
 			</tr>
 		</tbody>
 	</table>
