@@ -28,30 +28,32 @@ class EndUsers::OrdersController < ApplicationController
             @order.zip_code = @address.zip_code
             @order.address = @address.address
             @order.order_name = @address.order_name
-    	    @order.payment_method = params[:order][:payment_method].to_i
+            @order.payment_method = params[:order][:payment_method].to_i
         else
     		# もし３つ目を選択したらフォームに書いた住所
             @order = Order.new
-    	end
+        end
     end
 
     def create
     	# # 注文処理
         #　カートの商品を持ってくる記述を追記
-    	@order = Order.new(order_params)
+        @order = Order.new(order_params)
         @order.end_user_id = current_end_user.id
 
-    	@order.save
-    	redirect_to end_users_orders_thanks_path
-    end
+        if @order.save
+           current_end_user.cart_items.destroy_all
+           redirect_to end_users_orders_thanks_path
+       end
+   end
 
-    def thanks
-    end
+   def thanks
+   end
 
-    private
-    def order_params
-    	params.require(:order).permit(:zip_code,:address,:order_name,:payment_method,:total_amount)
-    end
+   private
+   def order_params
+       params.require(:order).permit(:zip_code,:address,:order_name,:payment_method,:total_amount)
+   end
 
 
 

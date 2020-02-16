@@ -1,8 +1,8 @@
-<h2>注文情報確認</h2>
 <div class="container">
 	<div class="row">
-<%= form_for(@order,url:end_users_orders_path,method: :post) do |f| %>
-		<table>
+		<h2>注文情報確認</h2>
+		<%= form_for(@order,url:end_users_orders_path,method: :post) do |f| %>
+		<table class= "table">
 			<thead>
 				<tr>
 					<th>商品名</th>
@@ -20,59 +20,59 @@
 						<%= cart_item.item.name %>
 					</td>
 					<td>
-						<%= cart_item.item.price %>
+						¥<%= cart_item.item.price %>
 					</td>
 					<td>
 						<%= cart_item.quantity %>
 					</td>
 					<td>
-						<%= cart_item.item.price * cart_item.quantity %>
+						¥<%= cart_item.item.price * cart_item.quantity %>
 					</td>
 				</tr>
 				<% @sum += cart_item.item.price * cart_item.quantity %>
 				<% end %>
 			</tbody>
 		</table>
+		<div class= "col-xs-4">
+			<table class= "table">
+				<tbody>
+					<tr>
+						<td>
+							送料
+						</td>
+						<td>
+							¥<%= 800 %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							合計金額
+						</td>
+						<td><%= f.hidden_field :total_amount, :value => @sum %>
+							¥<%= @sum %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							請求金額
+						</td>
+						<td>
+							¥<%= 800+@sum %>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 
-		<table>
-			<tbody>
-				<tr>
-					<td>
-						送料
-					</td>
-					<td>
-						<%= 800 %>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						合計金額
-					</td>
-					<td><%= f.hidden_field :total_amount, :value => @sum %>
-						<%= @sum %>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						請求金額
-					</td>
-					<td>
-						<%= 800+@sum %>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+			<h3>支払方法</h3>
+			<%= f.hidden_field :payment_method, :value => @order.payment_method %>
+			<%= @order.payment_method %>
+			<h3>お届け先</h3>
+			郵便番号: <%= f.hidden_field :zip_code, :value => @order.zip_code %><%= @order.zip_code %><br>
+			住所: <%= f.hidden_field :address, :value => @order.address %><%= @order.address %><br>
+			宛名:<%= f.hidden_field :order_name, :value => @order.order_name %><%= @order.order_name %><br>
+
+			<%= f.submit "購入を確定する" %><br>
+			<% end %>
+		</div>
 	</div>
-
 </div>
-
-<h2>支払方法</h2>
-<%= f.hidden_field :payment_method, :value => @order.payment_method %>
-<%= @order.payment_method %>
-<h2>お届け先</h2>
-郵便番号: <%= f.hidden_field :zip_code, :value => @order.zip_code %><%= @order.zip_code %><br>
-住所: <%= f.hidden_field :address, :value => @order.address %><%= @order.address %><br>
-宛名:<%= f.hidden_field :order_name, :value => @order.order_name %><%= @order.order_name %><br>
-
-<%= f.submit "購入を確定する" %><br>
-<% end %>

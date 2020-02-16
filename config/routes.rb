@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admins do
   	#adminsのルートを下記に書く
-  	resources :items
-    resources :end_users
-    resources :genres
+  	resources :items, only: [:index, :show, :new, :create, :edit, :update]
+    resources :end_users, only: [:index, :show, :edit, :update]
+    resources :genres, only: [:index, :create, :edit, :update]
     resources :orders, only: [:index, :show]
   end
 
@@ -29,10 +29,10 @@ Rails.application.routes.draw do
     get "orders/thanks" => "orders#thanks"
     get "end_users/unsubscribe"
 
-    resources :end_users
-    resources :orders
-    resources :items
-    resources :shipping_addresses
+    resources :end_users, only: [:show, :edit, :update, :destroy]
+    resources :orders, only: [:new, :index, :show, :create]
+    resources :items, only: [:index, :show]
+    resources :shipping_addresses, only: [:index, :create, :edit, :update, :destroy]
 
     resources :cart_items, only: [:index, :create, :update, :destroy]
     get 'cart_items/empty_cart' => "cart_items#empty_cart"

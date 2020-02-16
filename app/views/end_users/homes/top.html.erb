@@ -21,8 +21,7 @@
 				<% @items.each do |item| %>
 				<div class="item-box col-xs-3" style="margin-right: 30px;">
 					<%= link_to end_users_item_path(item) do %>
-					<p><%= attachment_image_tag item, :image, size: 130, fallback:"no_image.jpg"%>
-					</p>
+					<p><%= attachment_image_tag item, :image, size: 130, fallback:"no_image.jpg"%></p>
 					<p><%= item.name %></p>
 					<p>¥<%= item.price %></p>
 					<% end %>
