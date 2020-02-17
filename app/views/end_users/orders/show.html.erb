@@ -64,8 +64,9 @@
 				</thead>
 				<tbody>
 					<% @order.order_items.each do|order_item| %>
-					<tr>
+
 						<% @order.items.each do|item| %>
+						<tr>
 						<td><%= item.name %></td>
 						<% end %>
 						<td><%= order_item.price_tax %></td>

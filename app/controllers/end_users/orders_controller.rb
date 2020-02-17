@@ -39,20 +39,18 @@ class EndUsers::OrdersController < ApplicationController
     	# # 注文処理
     	@order = Order.new(order_params)
         @order.end_user_id = current_end_user.id
+    	@order.save
         current_end_user.cart_items.each do |cart_item|
         # カートアイテムの中身が複数の場合があるのでeach文を使用し全てcreateできるようにする
         @order_item = OrderItem.new
         @order_item.item_id = cart_item.item_id
         @order_item.price_tax = cart_item.item.price * 1.1
         @order_item.order_quantity = cart_item.quantity
-        end
-        if
-    	@order.save
         @order_item.order_id = @order.id
         @order_item.save
+        end
         current_end_user.cart_items.destroy_all
     	redirect_to end_users_orders_thanks_path
-        end
    end
 
 
