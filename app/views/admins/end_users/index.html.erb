@@ -18,7 +18,9 @@
 						<td><%= end_user.id %></td>
 						<td><%= link_to end_user.full_name ,admins_end_user_path(end_user.id)  %></td>
 						<td><%= end_user.email  %></td>
-						<td><%= end_user.member_status %></td>
+						<td><% if end_user.deleted end %>
+							<!-- if文を使ってdeleted_atがあった場合の表示したい内容　無い時の表示したい内容を書く -->
+							</td>
 					</tr>
 					<% end %>
 				</tbody>

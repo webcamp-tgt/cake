@@ -50,16 +50,13 @@ class EndUsers::OrdersController < ApplicationController
     	redirect_to end_users_orders_thanks_path
     end
 
-
    def thanks
    end
 
-   private
-   def order_params
-       params.require(:order).permit(:zip_code,:address,:order_name,:payment_method,:total_amount)
-   end
-
-
+    private
+    def order_params
+    	params.require(:order).permit(:zip_code,:address,:order_name,:payment_method,:total_amount,:order_status)
+    end
 
 
 end

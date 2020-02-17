@@ -1,6 +1,9 @@
 class Order < ApplicationRecord
 	belongs_to :end_user
 	has_many :order_items,dependent: :destroy
+
+	enum order_status: { 入金待ち:0, 入金確認:1, 製作中発送準備中:3, 発送済み:4 }
+
 	has_many :items,through: :order_items
 
 	def call_count
