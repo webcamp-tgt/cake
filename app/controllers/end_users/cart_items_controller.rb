@@ -1,10 +1,14 @@
 class EndUsers::CartItemsController < ApplicationController
 
 	def create
+		if end_user_signed_in?
 		@cart_item = CartItem.new(cart_item_params)
 		@cart_item.end_user_id = current_end_user.id
 		@cart_item.save
 		redirect_to end_users_cart_items_path
+		else
+		redirect_to root_path
+	end
 	end
 
 	def index
