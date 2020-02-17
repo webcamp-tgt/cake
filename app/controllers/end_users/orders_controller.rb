@@ -50,7 +50,7 @@ class EndUsers::OrdersController < ApplicationController
 
     private
     def order_params
-    	params.require(:order).permit(:zip_code,:address,:order_name,:payment_method,:total_amount)
+    	params.require(:order).permit(:zip_code,:address,:order_name,:payment_method,:total_amount,:order_status)
     end
 
 
