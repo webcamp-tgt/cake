@@ -1,17 +1,17 @@
 class EndUsers::ItemsController < ApplicationController
 	def index
-		@genres = Genre.all
+		@genres = Genre.where(is_active: true)
 		@items = Item.all
 	end
 
 	def genre
-		@genres = Genre.all
+		@genres = Genre.where(is_active: true)
 		@genre = Genre.find(params[:id])
 		@items = Item.all
 	end
 
 	def show
-		@genres = Genre.all
+		@genres = Genre.where(is_active: true)
 		@item = Item.find(params[:id])
 		@items = Item.all
 		@cart_item = CartItem.new
