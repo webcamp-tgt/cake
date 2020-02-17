@@ -43,7 +43,7 @@
 			<tr>
 				<th>配送料</th>
 				<td>
-					<%= @order.shipping_cost %>
+					<%= 800 %>
 				</td>
 			</tr>
 			<tr>
@@ -54,7 +54,7 @@
 	</table>
 
 <!-- 注文内容 -->
-　	<table>
+	<table>
 		<h3>注文内容</h3>
 		<thead>
 			<tr>
@@ -65,12 +65,16 @@
 			</tr>
 		</thead>
 		<tbody>
+			<% @order.order_items.each do|order_item| %>
 			<tr>
-				<td><%= @order.order_items.name %></td>
-				<td><%= @order.order_items.price_tax %></td>
-				<td><%= @order.order_items.order_quantity %></td>
-				<td><%= @order.order_items.price_tax * @order.order_items.order_quantity %></td>
+				<% @order.items.each do|item| %>
+				<td><%= item.name %></td>
+				<% end %>
+				<td><%= order_item.price_tax %></td>
+				<td><%= order_item.order_quantity %></td>
+				<td><%= order_item.price_tax * order_item.order_quantity %></td>
 			</tr>
+			<% end %>
 		</tbody>
 	</table>
 </body>
