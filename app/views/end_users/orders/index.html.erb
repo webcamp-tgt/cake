@@ -26,7 +26,9 @@
 
 
 				<!-- 下記の３行を訂正 -->
-				<td><%= "注文商品名をここに表示" %></td>
+				<% order.items.each do |item| %>
+				<td><%= item.name %></td>
+				<% end %>
 				<td><%= order.total_amount %></td>
 				<td><%= order.order_status %></td>
 
