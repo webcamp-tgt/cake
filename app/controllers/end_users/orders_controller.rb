@@ -40,19 +40,19 @@ class EndUsers::OrdersController < ApplicationController
     	@order = Order.new(order_params)
         @order.end_user_id = current_end_user.id
         current_end_user.cart_items.each do |cart_item|
-        @order_item = OrderItem.new
-        @order_item.item_id = cart_item.item_id
-        @order_item.price_tax = cart_item.item.price * 1.1
-        @order_item.order_quantity = cart_item.quantity
+            @order_item = OrderItem.new
+            @order_item.item_id = cart_item.item_id
+            @order_item.price_tax = cart_item.item.price * 1.1
+            @order_item.order_quantity = cart_item.quantity
         end
-    	@order.save
+        @order.save
         @order_item.order_id = @order.id
         @order_item.save
-    	redirect_to end_users_orders_thanks_path
+        redirect_to end_users_orders_thanks_path
     end
 
-   def thanks
-   end
+    def thanks
+    end
 
     private
     def order_params
