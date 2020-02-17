@@ -32,7 +32,8 @@ class EndUsers::OrdersController < ApplicationController
             @order.payment_method = params[:order][:payment_method].to_i
         else
     		# もし３つ目を選択したらフォームに書いた住所
-            @order = Order.new
+            @order = Order.new(order_params)
+            @order.payment_method = params[:order][:payment_method].to_i
         end
     end
 
@@ -47,11 +48,15 @@ class EndUsers::OrdersController < ApplicationController
         @order_item.price_tax = cart_item.item.price * 1.1
         @order_item.order_quantity = cart_item.quantity
         end
+        if
     	@order.save
         @order_item.order_id = @order.id
         @order_item.save
+        current_end_user.cart_items.destroy_all
     	redirect_to end_users_orders_thanks_path
-    end
+        end
+   end
+
 
 
    def thanks
