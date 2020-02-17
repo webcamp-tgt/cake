@@ -29,11 +29,11 @@ class EndUsers::OrdersController < ApplicationController
             @order.zip_code = @address.zip_code
             @order.address = @address.address
             @order.order_name = @address.order_name
-    	    @order.payment_method = params[:order][:payment_method].to_i
+            @order.payment_method = params[:order][:payment_method].to_i
         else
     		# もし３つ目を選択したらフォームに書いた住所
             @order = Order.new
-    	end
+        end
     end
 
     def create
@@ -53,13 +53,14 @@ class EndUsers::OrdersController < ApplicationController
     	redirect_to end_users_orders_thanks_path
     end
 
-    def thanks
-    end
 
-    private
-    def order_params
-    	params.require(:order).permit(:zip_code,:address,:order_name,:payment_method,:total_amount)
-    end
+   def thanks
+   end
+
+   private
+   def order_params
+       params.require(:order).permit(:zip_code,:address,:order_name,:payment_method,:total_amount)
+   end
 
 
 
