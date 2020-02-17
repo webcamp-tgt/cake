@@ -4,7 +4,6 @@ class EndUsers::OrdersController < ApplicationController
     end
 
     def index
-        @orders = Order.all
     end
 
     def show
@@ -58,16 +57,13 @@ class EndUsers::OrdersController < ApplicationController
    end
 
 
-
    def thanks
    end
 
-   private
-   def order_params
-       params.require(:order).permit(:zip_code,:address,:order_name,:payment_method,:total_amount)
-   end
-
-
+    private
+    def order_params
+    	params.require(:order).permit(:zip_code,:address,:order_name,:payment_method,:total_amount,:order_status)
+    end
 
 
 end

@@ -33,7 +33,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<% @shipping_addresses.each do |shipping_address| %>
+					<% current_end_user.shipping_addresses.each do |shipping_address| %>
 					<tr>
 						<td>
 							<%= shipping_address.zip_code %>
