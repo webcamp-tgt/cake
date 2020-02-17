@@ -32,7 +32,6 @@ class EndUsers::OrdersController < ApplicationController
         else
     		# もし３つ目を選択したらフォームに書いた住所
             @order = Order.new(order_params)
-            @order.payment_method = params[:order][:payment_method].to_i
         end
     end
 
