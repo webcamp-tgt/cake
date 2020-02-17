@@ -13,6 +13,7 @@ class EndUsers::OrdersController < ApplicationController
     end
 
     def confirm
+        # address_select　は一時的作成したカラムで、パラメータでデータを送る際に使用。
     	if params[:address_select] == "1"
     		# もし１つ目を選択したら自分の住所
             @order = Order.new
@@ -40,6 +41,7 @@ class EndUsers::OrdersController < ApplicationController
     	@order = Order.new(order_params)
         @order.end_user_id = current_end_user.id
         current_end_user.cart_items.each do |cart_item|
+        # カートアイテムの中身が複数の場合があるのでeach文を使用し全てcreateできるようにする
         @order_item = OrderItem.new
         @order_item.item_id = cart_item.item_id
         @order_item.price_tax = cart_item.item.price * 1.1
