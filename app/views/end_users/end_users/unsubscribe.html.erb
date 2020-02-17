@@ -1,12 +1,14 @@
-<div class="container">
-	<div class="row">
-		<h2>本当に退会しますか？</h2>
-		<h3>退会すると、会員情報や<br>
-			これまでの購入履歴が閲覧できなくなります。<br>
-			退会する場合は「退会する」をクリックして下さい。
-		</h3>
+<body class="mypage">
+	<div class="container">
+		<div class="row">
+			<h2 class= "toptext">本当に退会しますか？</h2>
+			<h3 class= "toptext">退会すると、会員情報や<br>
+				これまでの購入履歴が閲覧できなくなります。<br>
+				退会する場合は「退会する」をクリックして下さい。
+			</h3>
 
-		<%= link_to "退会しない", end_users_end_user_path(current_end_user.id) %>
-		<%= link_to "退会する", end_users_end_user_path(current_end_user.id), method: :delete, "date-confirm" => "本当に退会しますか？"  %>
+			<%= link_to "退会しない", end_users_end_user_path(current_end_user.id),class: "mypageb", :style => "margin:20px; text-decoration:none; color:white;" %>
+			<%= link_to "退会する", end_users_end_user_path(current_end_user.id), method: :delete, "date-confirm" => "本当に退会しますか？", class: "mypageb2", :style => "margin:20px; text-decoration:none; color:white;"  %>
+		</div>
 	</div>
-</div>
+</body>
