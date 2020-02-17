@@ -1,37 +1,38 @@
 <body class= "userbody">
-<div class="container">
-	<div class="row">
-		<body>
-			<table class="genres_sarch col-xs-3">
-				<thead>
-					<tr>
-						<th class= "itemtext">ジャンル検索</th>
-					</tr>
-				</thead>
-				<tbody>
-					<% @genres.each do |genre| %>
-					<tr>
-						<td><%= link_to genre.name,end_users_items_path %></td>
-					</tr>
+	<div class="container">
+		<div class="row">
+			<body>
+				<table class="genres_sarch col-xs-3">
+					<thead>
+						<tr>
+							<th class= "itemtext">ジャンル検索</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @genres.each do |genre| %>
+						<tr>
+							<td><%= link_to genre.name,end_users_items_path,class: "genre" , :style => "margin:8px; width:50%; text-align:center; text-decoration:none; color:white;"  %>
+							</td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+
+				<div class="item_image col-xs-9">
+					<%= attachment_image_tag @item, :image, size: 200, fallback:"no_image.jpg"%>
+					<%= @item.name %>
+					<%= @item.description %>
+					<p>¥<%= @item.price %>(税込)</p>
+
+					<%= form_for(@cart_item, url:end_users_cart_items_path,method: :post) do |f| %>
+					<%= f.hidden_field :item_id, :value => @item.id %>
+					<%= f.label "数量" %>
+					<%= f.select :quantity,(1..30).to_a %>
+					<%= f.submit "カートに入れる", class: "itemcart"%>
 					<% end %>
-				</tbody>
-			</table>
+				</div>
 
-			<div class="item_image col-xs-8">
-				<%= attachment_image_tag @item, :image, size: 200, fallback:"no_image.jpg"%>
-				<%= @item.name %>
-				<%= @item.description %>
-				<p>¥<%= @item.price %>(税込)</p>
-
-			<%= form_for(@cart_item, url:end_users_cart_items_path,method: :post) do |f| %>
-			<%= f.hidden_field :item_id, :value => @item.id %>
-			<%= f.label "数量" %>
-			<%= f.select :quantity,(1..30).to_a %>
-			<%= f.submit "カートに入れる", class: "itemcart"%>
-			<% end %>
-			</div>
-
-		</body>
+			</body>
+		</div>
 	</div>
-</div>
 </body>

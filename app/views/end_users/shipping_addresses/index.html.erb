@@ -1,9 +1,9 @@
-<body>
+<body class= "shippingbody">
 	<div class="container">
 		<div class="row">
-			<h2>配送先登録/一覧</h2>
+			<h2 class= "shippingtext">配送先登録/一覧</h2>
 			<%= form_for(@shipping_address,url:end_users_shipping_addresses_path, method: :post)  do |f| %>
-			<table>
+			<table class="table table-bordered">
 				<thead>
 					<tr>
 						<th>郵便番号</th>
@@ -19,13 +19,11 @@
 					</tr>
 				</thead>
 			</table>
-			<button >
-				<%= f.submit "登録する" %>
-			</button>
+			<%= f.submit "登録する", class: "shippingb", :style => "margin:20px;" %>
 			<% end %>
 
 
-			<table>
+			<table class="table">
 				<thead>
 					<tr>
 						<th>郵便番号</th>
@@ -47,8 +45,10 @@
 							<%= shipping_address.order_name %>
 						</td>
 						<td>
-							<%= link_to "編集する", edit_end_users_shipping_address_path(shipping_address) %>
-							<%= link_to "削除する", end_users_shipping_address_path(shipping_address),method: :delete %>
+							<%= link_to "編集する", edit_end_users_shipping_address_path(shipping_address), class: "shippingb", :style => "text-decoration:none; color:white; margin-right:20px;" %>
+							<%= link_to end_users_shipping_address_path(shipping_address),method: :delete, class: "shippingb2", :style => "text-decoration:none; color:white;" do %>
+							<i class="fas fa-trash-alt fa-fw faa-wrench animated-hover"></i>
+							<% end %>
 						</td>
 					</tr>
 					<% end %>
@@ -56,5 +56,4 @@
 			</table>
 		</div>
 	</div>
-
 </body>
