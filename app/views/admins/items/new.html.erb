@@ -1,44 +1,39 @@
-<div class="container">
-	<div class="row">
+<body class= "abody">
+	<div class="container">
+		<div class="row">
 
-		<h2>商品 新規登録画面</h2>
+			<h2 class="atoptext">商品 新規登録画面</h2>
 
-		<%= form_for(@item,url: admins_items_path, method: :post) do |f| %>
-		<%= f.attachment_field :image %>
+			<%= form_for(@item,url: admins_items_path, method: :post) do |f| %>
+			<%= f.attachment_field :image, class: "atoptext" %>
 
-		<div class= "pull-right col-xs-8">
-			<ul>
-				<li>
-					<label>商品名</label>
-					<%= f.text_field :name%>
-				</li>
+			<div class= "pull-right col-xs-8">
+				<ul class="atoptext">
+					<li>
+						<label>商品名</label>
+						<%= f.text_field :name%>
+					</li>
 
-				<li>
-					<label>商品説明</label>
-					<%= f.text_area :description%>
-				</li>
-				<li>
-
-					<label>ジャンル</label>
-					<%= f.collection_select :genre_id, Genre.all, :id, :name %>
-				</li>
-				<li>
-
-					<label>税抜価格 ¥</label>
-					<%= f.text_field :price%>
-				</li>
-				<li>
-
-					<label>販売ステータス</label>
-					<%= f.select :sale_status, Item.sale_statuses.keys, {prompt: '選択してください'} %>
-				</li>
-				<li>
-
-
-					<%= f.submit "新規登録" %>
-				</li>
-			</ul>
+					<li>
+						<label>商品説明</label>
+						<%= f.text_area :description%>
+					</li>
+					<li>
+						<label>ジャンル</label>
+						<%= f.collection_select :genre_id, Genre.all, :id, :name %>
+					</li>
+					<li>
+						<label>税抜価格 ¥</label>
+						<%= f.text_field :price%>
+					</li>
+					<li>
+						<label>販売ステータス</label>
+						<%= f.select :sale_status, Item.sale_statuses.keys, {prompt: '選択してください'} %>
+					</li>
+				</ul>
+					<%= f.submit "新規登録" , class: "admin"%>
+			</div>
+			<% end %>
 		</div>
-		<% end %>
 	</div>
-</div>
+	<body>

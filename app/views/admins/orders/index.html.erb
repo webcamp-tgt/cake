@@ -1,23 +1,29 @@
-<h1>注文一覧画面</h1>
-<table>
-	<thead>
-		<tr>
-			<th>購入日時</th>
-			<th>購入者</th>
-			<th>購入個数</th>
-			<th>注文ステータス</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @orders.each do |order| %>
-		<tr>
-			<td><%= link_to order.created_at.strftime("%Y/%m/%d %H:%M"), admins_order_path(order) %></td>
-			<td><%= order.end_user.first_name %>
-				<%= order.end_user.last_name %>
-			</td>
-			<td><%= order.order_status %></td>
-		</tr>
+<body class="abody">
+	<div class="container">
+		<div class="row">
+			<h1 class= "atoptext">注文一覧画面</h1>
+			<table class= "atoptext table">
+				<thead>
+					<tr>
+						<th>購入日時</th>
+						<th>購入者</th>
+						<th>購入個数</th>
+						<th>注文ステータス</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @orders.each do |order| %>
+					<tr>
+						<td><%= link_to order.created_at.strftime("%Y/%m/%d %H:%M"), admins_order_path(order) %></td>
+						<td><%= order.end_user.first_name %>
+							<%= order.end_user.last_name %>
+						</td>
+						<td><%= order.order_status %></td>
+					</tr>
 
-		<% end %>
-	</tbody>
-</table>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>

@@ -1,28 +1,32 @@
+<body class="abody">
 <div class="container">
 	<div class="row">
-		<h2>商品一覧画面</h2>
+		<h2 class= "atoptext">商品一覧画面</h2>
 
-		<%= link_to  "", new_admins_item_path, class: "pull-right col-xs-1 btn btn-default glyphicon glyphicon-plus" %>
+		<%= link_to new_admins_item_path, class: "admin" do %>
+		<i class="fas fa-plus"></i>
+		<% end %>
 
 <table class="table">
 	<thead>
 		<tr>
-			<th>商品ID</th>
-			<th>商品名</th>
-			<th>税抜価格</th>
-			<th>ジャンル</th>
-			<th>ステータス</th>
+			<th class= "atoptext">商品ID</th>
+			<th class= "atoptext">商品名</th>
+			<th class= "atoptext">税抜価格</th>
+			<th class= "atoptext">ジャンル</th>
+			<th class= "atoptext">ステータス</th>
 		</tr>
 	</thead>
 	<tbody>
 		<% @items.each do |item| %>
 		<tr>
-			<td><%= item.id %></td>
-			<td><%= link_to item.name, admins_item_path(item) %></td>
-			<td><%= item.price %></td>
-			<td><%= item.genre.name%></td>
-			<td><%= item.sale_status %></td>
+			<td class= "atoptext"><%= item.id %></td>
+			<td class= "atoptext"><%= link_to item.name, admins_item_path(item) %></td>
+			<td class= "atoptext"><%= item.price %></td>
+			<td class= "atoptext"><%= item.genre.name%></td>
+			<td class= "atoptext"><%= item.sale_status %></td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
+</div>
