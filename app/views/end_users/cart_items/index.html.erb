@@ -31,8 +31,8 @@
 
 							<%= form_for(cart_item, url:end_users_cart_item_path(cart_item),method: :patch) do |f| %>
 							<% cart_item.quantity %>
-							<%= f.number_field :quantity %>
-							<%= f.submit "変更する", "style" => "text-decoration: none; color: white; margin: 20px;", class: "changbutton"%>
+							<%= f.select :quantity,(1..30).to_a %>
+							<%= f.submit "変更する", :style => "text-decoration: none; color: white; margin: 20px;", class: "changbutton"%>
 							<% end %>
 						</td>
 						<td>

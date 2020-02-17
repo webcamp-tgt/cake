@@ -2,7 +2,6 @@ class EndUsers::ShippingAddressesController < ApplicationController
 
 def index
 		@shipping_address = ShippingAddress.new
-		@shipping_addresses = ShippingAddress.all
 end
 
 def create
