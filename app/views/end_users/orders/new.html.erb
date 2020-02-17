@@ -6,10 +6,10 @@
 			<h3>支払方法</h3>
 			<%= form_with model: @order,local: true,url:end_users_orders_confirm_path, method: :get do |f| %>
 			<label>
-				<%= f.radio_button :payment_method, 0, :style => "margin:10px;" %>クレジットカード
+				<%= f.radio_button :payment_method, "クレジットカード", :style => "margin:10px;" %>クレジットカード
 			</label>
 			<label>
-				<%= f.radio_button :payment_method, 1, :style => "margin:10px;" %>銀行振込
+				<%= f.radio_button :payment_method, "銀行振込", :style => "margin:10px;" %>銀行振込
 			</label>
 
 			<h3>お届け先</h3>

@@ -1,10 +1,8 @@
-
+<body class="ordersbody">
 <div class="container">
 	<div class="row">
-
-<body>
-	<h2>注文履歴一覧</h2>
-	<table>
+	<h2 class= "toptext">注文履歴一覧</h2>
+	<table class="table">
 		<thead>
 			<tr>
 				<th>注文日</th>
@@ -16,7 +14,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<% @orders.each do |order| %>
+			<% current_end_user.orders.each do |order| %>
 			<tr>
 				<td><%= order.created_at.strftime('%Y/%m/%d')  %></td>
 				<td><%= order.zip_code %><br>
@@ -29,16 +27,16 @@
 				<% order.items.each do |item| %>
 				<td><%= item.name %></td>
 				<% end %>
-				<td><%= order.total_amount %></td>
+				<td><%= order.total_amount %>円</td>
 				<td><%= order.order_status %></td>
 
 
 
-				<td><%= link_to "表示する",end_users_order_path(order) %></td>
+				<td><%= link_to "表示する",end_users_order_path(order), class: "order", :style => "text-decoration:none; color:white;"  %></td>
 			</tr>
 			<% end %>
 		</tbody>
 	</table>
-</body>
 	</div>
 </div>
+</body>

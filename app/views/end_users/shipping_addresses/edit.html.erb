@@ -1,9 +1,9 @@
-<body>
+<body class= "shippingbody">
 	<div class="container">
 	<div class="row">
-	<h2>配送先編集</h2>
+	<h2 class= "toptext">配送先編集</h2>
 	<%= form_for(@shipping_address,url:end_users_shipping_address_path, method: :put) do |f| %>
-	<table>
+	<table class= "table table-bordered">
 		<thead>
 			<tr>
 				<th>郵便番号</th>
@@ -19,9 +19,7 @@
 			</tr>
 		</thead>
 	</table>
-	<button >
-	<%= f.submit "編集する" %>
-	</button>
+	<%= f.submit "保存", class: "shippingb", :style => "margin:20px;" %>
 	<% end %>
 	</div>
 </div>

@@ -4,7 +4,6 @@ class EndUsers::OrdersController < ApplicationController
     end
 
     def index
-        @orders = Order.all
     end
 
     def show
@@ -13,6 +12,7 @@ class EndUsers::OrdersController < ApplicationController
     end
 
     def confirm
+        # address_select　は一時的作成したカラムで、パラメータでデータを送る際に使用。
     	if params[:address_select] == "1"
     		# もし１つ目を選択したら自分の住所
             @order = Order.new
@@ -31,7 +31,7 @@ class EndUsers::OrdersController < ApplicationController
             @order.payment_method = params[:order][:payment_method].to_i
         else
     		# もし３つ目を選択したらフォームに書いた住所
-            @order = Order.new
+            @order = Order.new(order_params)
         end
     end
 
@@ -40,16 +40,21 @@ class EndUsers::OrdersController < ApplicationController
     	@order = Order.new(order_params)
         @order.end_user_id = current_end_user.id
         current_end_user.cart_items.each do |cart_item|
-            @order_item = OrderItem.new
-            @order_item.item_id = cart_item.item_id
-            @order_item.price_tax = cart_item.item.price * 1.1
-            @order_item.order_quantity = cart_item.quantity
+
+        # カートアイテムの中身が複数の場合があるのでeach文を使用し全てcreateできるようにする
+        @order_item = OrderItem.new
+        @order_item.item_id = cart_item.item_id
+        @order_item.price_tax = cart_item.item.price * 1.1
+        @order_item.order_quantity = cart_item.quantity
         end
-        @order.save
+        if
+    	@order.save
         @order_item.order_id = @order.id
         @order_item.save
-        redirect_to end_users_orders_thanks_path
-    end
+        current_end_user.cart_items.destroy_all
+    	redirect_to end_users_orders_thanks_path
+        end
+   end
 
     def thanks
     end
