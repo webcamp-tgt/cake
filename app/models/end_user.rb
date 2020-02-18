@@ -4,20 +4,14 @@ class EndUser < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :cart_items,dependent: :destroy
-  has_many :orders,dependent: :destroy
-  has_many :shipping_addresses,dependent: :destroy
+  has_many :cart_items
+  has_many :orders
+  has_many :shipping_addresses
 
 
   def full_name
   	[first_name, last_name].join('')
   end
-
-
-
-  acts_as_paranoid
-
-
 
   def soft_delete
     update_attribute(:deleted_at, Time.current)
@@ -27,8 +21,8 @@ class EndUser < ApplicationRecord
     super && !deleted_at
   end
 
-  def inactive_massage
-    !deleted_at ? super : deleted_account
+  def inactive_message
+    !deleted_at ? super : :deleted_account
   end
 
 

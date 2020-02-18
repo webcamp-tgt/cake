@@ -41,6 +41,7 @@ class EndUsers::OrdersController < ApplicationController
         @order.end_user_id = current_end_user.id
     	@order.save
         current_end_user.cart_items.each do |cart_item|
+
         # カートアイテムの中身が複数の場合があるのでeach文を使用し全てcreateできるようにする
         @order_item = OrderItem.new
         @order_item.item_id = cart_item.item_id
@@ -53,9 +54,8 @@ class EndUsers::OrdersController < ApplicationController
     	redirect_to end_users_orders_thanks_path
    end
 
-
-   def thanks
-   end
+    def thanks
+    end
 
     private
     def order_params
