@@ -1,4 +1,5 @@
 class EndUsers::OrdersController < ApplicationController
+    before_action :authenticate_end_user!
     def new
     	@order = Order.new
     end

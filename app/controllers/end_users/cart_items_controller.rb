@@ -1,4 +1,5 @@
 class EndUsers::CartItemsController < ApplicationController
+	before_action :authenticate_end_user!
 
 	def create
 		if end_user_signed_in?
