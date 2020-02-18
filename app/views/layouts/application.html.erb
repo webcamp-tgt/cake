@@ -14,40 +14,45 @@
 
 <body>
   <header>
-  <h1 class= "header">
-    <%= link_to  end_users_items_path,"style" => "text-decoration: none; color: white;" do%>
-    NAGANOCAKE
-    <i class= "fas fa-birthday-cake my-orange fa-2x fa-fw faa-float animated"></i>
-    <% end %>
-  </h1>
-  <nav class= "">
-    <ul class= "">
-      <% if end_user_signed_in? %>
-      <li class= "list" style="margin-right: 30px;">
-        <%= link_to end_users_end_user_path(current_end_user.id), "style" => "text-decoration: none; color: white;" do %>
-        <i class="fas fa-user fa-fw faa-tada animated-hover"></i>
-        My.Page
+    <% if end_user_signed_in? %>
+    <h1 class= "header">
+      <%= link_to  end_users_items_path,"style" => "text-decoration: none; color: white;" do%>
+      NAGANO-CAKE
+      <i class= "fas fa-birthday-cake my-orange fa-2x fa-fw faa-float animated"></i>
+      <% end %>
+    </h1>
+    <li class= "list" style="margin-right: 30px;">
+      <%= link_to end_users_end_user_path(current_end_user.id), "style" => "text-decoration: none; color: white;" do %>
+      <i class="fas fa-user fa-fw faa-tada animated-hover"></i>
+      My.Page
+      <% end %>
+    </li>
+    <li class= "list" style="margin-right: 30px;">
+      <%= link_to end_users_homes_about_path, "style" => "text-decoration: none; color: white;" do %>
+      <i class="fas fa-info-circle fa-fw faa-tada animated-hover"></i>
+      About
+      <% end %>
+    </li>
+    <li class= "list" style="margin-right: 30px;">
+      <%= link_to destroy_end_user_session_path, method: :delete, "style" => "text-decoration: none; color: white;" do %>
+      <i class="fas fa-sign-out-alt fa-fw faa-tada animated-hover"></i>
+      Logout
+      <% end %>
+    </li>
+    <li class= "list" style="margin-right: 30px;">
+      <%= link_to end_users_cart_items_path, "style" => "text-decoration: none; color: white;" do%>
+      <i class="fas fa-shopping-cart fa-fw faa-tada animated-hover"></i>
+      Cart
+      <% end %>
+    </li>
+    <% elsif admin_signed_in?%>
+    <div class= "aheader">
+      <h1>
+        <%= link_to admins_top_path, "style" => "text-decoration: none; color: white;" do%>
+        NAGANO-CAKE
+        <i class= "fas fa-birthday-cake my-orange fa-2x fa-fw faa-float animated"></i>
         <% end %>
-      </li>
-      <li class= "list" style="margin-right: 30px;">
-        <%= link_to end_users_homes_about_path, "style" => "text-decoration: none; color: white;" do %>
-        <i class="fas fa-info-circle fa-fw faa-tada animated-hover"></i>
-        About
-        <% end %>
-      </li>
-      <li class= "list" style="margin-right: 30px;">
-        <%= link_to destroy_end_user_session_path, method: :delete, "style" => "text-decoration: none; color: white;" do %>
-        <i class="fas fa-sign-out-alt fa-fw faa-tada animated-hover"></i>
-        Logout
-        <% end %>
-      </li>
-      <li class= "list" style="margin-right: 30px;">
-        <%= link_to end_users_cart_items_path, "style" => "text-decoration: none; color: white;" do%>
-        <i class="fas fa-shopping-cart fa-fw faa-tada animated-hover"></i>
-        Cart
-        <% end %>
-      </li>
-      <% elsif admin_signed_in? %>
+      </h1>
       <li class= "list" style="margin-right: 30px;">
         <%= link_to admins_items_path, "style" => "text-decoration: none; color: white;" do %>
         <i class="fas fa-align-justify fa-fw faa-tada animated-hover"></i>
@@ -78,37 +83,54 @@
         Logout
         <% end %>
       </li>
+    </div>
 
-      <% else %>
-      <li class= "list" style="margin-right: 30px;">
-        <%= link_to new_end_user_session_path, "style" => "text-decoration: none; color: white;" do %>
-        <i class="fas fa-sign-in-alt fa-fw faa-tada animated-hover"></i>
-        Login
-        <% end %>
-      </li>
-      <li class= "list" style="margin-right: 30px;">
-        <%= link_to new_end_user_registration_path, "style" => "text-decoration: none; color: white;" do %>
-        <i class="fas fa-user-plus"></i>
-        Signin
-        <% end %>
-      </li>
-      <li class= "list" style="margin-right: 30px;">
-        <%= link_to homes_about_path, "style" => "text-decoration: none; color: white;" do %>
-        <i class="fas fa-info-circle fa-fw faa-tada animated-hover"></i>
-        About
-        <% end %>
-      </li>
+    <% else %>
+    <h1 class= "header">
+      <%= link_to  end_users_items_path,"style" => "text-decoration: none; color: white;" do%>
+      NAGANO-CAKE
+      <i class= "fas fa-birthday-cake my-orange fa-2x fa-fw faa-float animated"></i>
       <% end %>
-    </ul>
-  </nav>
+    </h1>
+    <li class= "list" style="margin-right: 30px;">
+      <%= link_to new_end_user_session_path, "style" => "text-decoration: none; color: white;" do %>
+      <i class="fas fa-sign-in-alt fa-fw faa-tada animated-hover"></i>
+      Login
+      <% end %>
+    </li>
+    <li class= "list" style="margin-right: 30px;">
+      <%= link_to new_end_user_registration_path, "style" => "text-decoration: none; color: white;" do %>
+      <i class="fas fa-user-plus fa-fw faa-tada animated-hover"></i>
+      Signin
+      <% end %>
+    </li>
+    <li class= "list" style="margin-right: 30px;">
+      <%= link_to homes_about_path, "style" => "text-decoration: none; color: white;" do %>
+      <i class="fas fa-info-circle fa-fw faa-tada animated-hover"></i>
+      About
+      <% end %>
+    </li>
+    <% end %>
+  </ul>
+</nav>
 </header>
 <div class="body">
   <%= yield %>
 </div>
- <footer>
-    <div class="footer">
-      <p>©ながのCAKE Production by TGT</p>
-    </div>
-  </footer>
+<footer>
+  <% if end_user_signed_in? %>
+  <div class="footer">
+    <p>©ながのCAKE Production by TGT</p>
+  </div>
+  <% elsif admin_signed_in?%>
+  <div class="afooter">
+    <p>©ながのCAKE Production by TGT</p>
+  </div>
+  <% else %>
+  <div class="footer">
+    <p>©ながのCAKE Production by TGT</p>
+  </div>
+  <% end %>
+</footer>
 </body>
 </html>
