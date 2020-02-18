@@ -1,13 +1,13 @@
 class EndUsers::ItemsController < ApplicationController
 	def index
 		@genres = Genre.where(is_active: true)
-		@items = Item.all
+		@items = Item.page(params[:page]).reverse_order
 	end
 
 	def genre
 		@genres = Genre.where(is_active: true)
 		@genre = Genre.find(params[:id])
-		@items = Item.all
+		@items = Item.page(params[:page]).reverse_order
 	end
 
 	def show
