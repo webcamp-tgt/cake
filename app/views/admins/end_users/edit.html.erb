@@ -35,8 +35,8 @@
 		<tr>
 			<td>会員ステータス</td>
 			<td>
-				<label><%= f.radio_button "status_id", "1" %>有効</label>
-				<label><%= f.radio_button "status_id", "2" %>退会済み</label>
+				<label><%= radio_button_tag :status_id, "1" %>有効</label>
+				<label><%= radio_button_tag :status_id, "2" %>退会済み</label>
 			</td>
 		</tr>
 

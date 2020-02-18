@@ -17,9 +17,8 @@ class Admins::EndUsersController < ApplicationController
 		if  params[:status_id] =="1"
 			@end_user.update(end_user_params)
 			redirect_to admins_end_user_path(@end_user.id)
-		
 		else params[:status_id] =="2"
-			@end_user.destroy
+			@end_user.soft_delete
 			redirect_to admins_end_users_path
 		end
 	end

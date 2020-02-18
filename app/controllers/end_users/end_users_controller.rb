@@ -14,7 +14,7 @@ class EndUsers::EndUsersController < ApplicationController
 	end
 	def destroy
 		end_user = EndUser.find(params[:id])
-		end_user.destroy
+		end_user.soft_delete
 		redirect_to end_users_homes_top_path
 	end
 

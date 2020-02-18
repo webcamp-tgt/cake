@@ -6,71 +6,66 @@
 			<td><%= @order.end_user.full_name %> </td>
 		</tr>
 		<tr>
-			<td>配送先<td>
-				<td><%= @order.address %><br>
-					<%= @order_name %></td>
-				</tr>
-				<tr>
-					<td>支払方法</td>
-					<td>銀行振込</td>
-				</tr>
-				<tr>
-					<%= form_for(@order, url:admins_order_path(@order.id), method: :patch) do |f| %>
-					<td>注文ステータス</td>
-					<td>
-						<label><%= f.select :order_status, Order.order_statuses.keys,{} %></label>
-					</td>
-					<td><%= f.submit "更新" %></td>
-					<% end %>
-				</tr>
-			</tbody>
-		</table>
-		<!-- 注文商品詳細 -->
-		<table>
-			<thead>
-				<tr>
-					<th>商品名</th>
-					<th>単価（税込）</th>
-					<td>数量</td>
-					<td>小計</td>
-					<td>制作ステータス</td>
-				</tr>
-			</thead>
-			<tbody>
-				<% @order.order_items.each do |order_item| %>
-				<tr>
-					<td><%= order_item.item.name %></td>
-					<td><%= order_item.price_tax %></td>
-					<td><%= order_item.order_quantity %></td>
-					<td><%= order_item.order_quantity*order_item.price_tax %></td>
-					<%= form_for(@order_items, url:admins_order_item, method: :patch) do |f| %>
-					<td><%= f.hidden_field :order_item_id, :value => order_item.id %>
-
-
-
-
-						<label><%= f.select :production_status,Order_item.production_statuses.keys,{} %></label>
-					</td>
-					<td><%= f.submit "更新" %></td>
-					<% end %>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
-		<!-- 注文詳細画面 -->
-		<table>
-			<tbody>
-				<tr>
-					<td>商品合計</td>
-					<td><%= (@order.total_price).to_i %>円</td>
-				</tr>
-				<tr>
-					<td>送料</td>
-					<td><%= @order.shipping_cost %>円</td>
-				</tr>
-				<tr>
-					<td>請求金額合計</td>
-					<td><%= @order.total_price + 800 %>円</td>
-				</tr>
-			</tbody>
-		</table>
+			<td>配送先</td>
+			<td><%= @order.zip_code %> <%= @order.address %> <%= @order.order_name %></td>
+		</tr>
+		<tr>
+			<td>支払方法</td>
+			<td><%= @order.payment_method %></td>
+		</tr>
+		<tr>
+			<%= form_for(@order, url:admins_order_path(@order.id), method: :patch) do |f| %>
+			<td>注文ステータス</td>
+			<td>
+				<label><%= f.select :order_status, Order.order_statuses.keys,{} %></label>
+			</td>
+			<td><%= f.submit "更新" %></td>
+			<% end %>
+		</tr>
+	</tbody>
+</table>
+<!-- 注文商品詳細 -->
+<table>
+	<thead>
+		<tr>
+			<th>商品名</th>
+			<th>単価（税込）</th>
+			<td>数量</td>
+			<td>小計</td>
+			<td>制作ステータス</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% @order.order_items.each do |order_item| %>
+		<tr>
+			<td><%= order_item.item.name %></td>
+			<td><%= order_item.price_tax %></td>
+			<td><%= order_item.order_quantity %></td>
+			<td><%= order_item.order_quantity*order_item.price_tax %></td>
+			<%= form_for(order_item, url:admins_order_item_path(order_item.id), method: :patch) do |f| %>
+			<td>
+				<label><%= f.select :production_status,OrderItem.production_statuses.keys,{} %></label>
+			</td>
+			<td><%= f.submit "更新" %></td>
+			<% end %>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<!-- 注文詳細画面 -->
+<table>
+	<tbody>
+		<tr>
+			<td>商品合計</td>
+			<td><%= @order.total_amount %>円</td>
+		</tr>
+		<tr>
+			<td>送料</td>
+			<td><%= @order.shipping_cost %>円</td>
+		</tr>
+		<tr>
+			<td>請求金額合計</td>
+			<td><%= @order.total_amount + 800 %>円</td>
+		</tr>
+	</tbody>
+</table>
