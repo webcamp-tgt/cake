@@ -21,13 +21,14 @@
 							<%= cart_item.item.name %>
 						</td>
 						<td>
-							¥<%= cart_item.item.price %>
+							¥<%= cart_item.item.price.to_s(:delimited) %>
 						</td>
 						<td>
 							<%= cart_item.quantity %>
 						</td>
 						<td>
-							¥<%= cart_item.item.price * cart_item.quantity %>
+							¥<% @a = cart_item.item.price * cart_item.quantity %>
+							<%= @a.to_s(:delimited) %>
 						</td>
 					</tr>
 					<% @sum += cart_item.item.price * cart_item.quantity %>
@@ -42,7 +43,7 @@
 								送料
 							</td>
 							<td>
-								¥<%= 800 %>
+								¥<%= 800.to_s(:delimited) %>
 							</td>
 						</tr>
 						<tr>
@@ -50,7 +51,7 @@
 								合計金額
 							</td>
 							<td><%= f.hidden_field :total_amount, :value => @sum %>
-								¥<%= @sum %>
+								¥<%= @sum.to_s(:delimited) %>
 							</td>
 						</tr>
 						<tr>
@@ -58,7 +59,7 @@
 								請求金額
 							</td>
 							<td>
-								¥<%= 800+@sum %>
+								¥<%= (800+@sum).to_s(:delimited) %>
 							</td>
 						</tr>
 					</tbody>
