@@ -25,7 +25,7 @@
 							<%= cart_item.item.name %>
 						</td>
 						<td>
-							¥ <%= cart_item.item.price %>
+							¥ <%= cart_item.item.price.to_s(:delimited) %>
 						</td>
 						<td>
 
@@ -36,7 +36,8 @@
 							<% end %>
 						</td>
 						<td>
-							¥ <%= cart_item.item.price * cart_item.quantity %>
+							¥ <% @a = cart_item.item.price * cart_item.quantity %>
+							<%= @a.to_s(:delimited) %>
 						</td>
 						<td>
 							<%= link_to end_users_cart_item_path(cart_item), method: :delete, "style" => "text-decoration: none; color: white; margin:20px;", class: "deletebutton"  do %>
@@ -52,7 +53,7 @@
 				<tbody>
 					<tr>
 						<td>
-							合計金額 ¥ <%= @sum %>
+							合計金額 ¥ <%= @sum.to_s(:delimited) %>
 						</td>
 						<td>
 						</td>

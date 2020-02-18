@@ -22,7 +22,7 @@
 					<%= attachment_image_tag @item, :image, size: 200, fallback:"no_image.jpg"%>
 					<%= @item.name %>
 					<%= @item.description %>
-					<p>¥<%= @item.price %>(税込)</p>
+					<p>¥<%= (@item.price * 1.1).floor.to_s(:delimited) %>(税込)</p>
 
 					<%= form_for(@cart_item, url:end_users_cart_items_path,method: :post) do |f| %>
 					<%= f.hidden_field :item_id, :value => @item.id %>
