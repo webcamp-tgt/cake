@@ -24,8 +24,11 @@
 
 
 				<!-- 下記の３行を訂正 -->
-				<% order.items.each do |item| %>
-				<td><%= item.name %></td>				<% end %>
+				<td>
+					<% order.items.each do |item| %>
+						<%= item.name %><br>
+					<% end %>
+				</td>
 				<td><%= order.total_amount %>円</td>
 				<td><%= order.order_status %></td>
 
