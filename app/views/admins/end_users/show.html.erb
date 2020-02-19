@@ -18,7 +18,6 @@
 							<%= @end_user.first_name %>
 							<%= @end_user.last_name %>
 						</td>
-
 					</tr>
 					<tr>
 						<td>フリガナ</td>
@@ -50,9 +49,10 @@
 				</td>
 			</tr>
 			<tr>
-				<td><%= link_to "注文履歴一覧を見る","",class: "admin", :style => "margin:10px; text-decoration:none; color:white;" %>
+				<td><%= link_to "注文履歴一覧を見る",admins_orders_path,class: "admin", :style => "margin:10px; text-decoration:none; color:white;" %>
 				</td>
 			</tr>
 		</div>
+
 	</div>
 </body>

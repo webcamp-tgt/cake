@@ -4,6 +4,13 @@
 			<h2 class= "toptext">マイページ</h2>
 
 			<h2 class= "toptext">登録情報</h2>
+
+
+			<% if flash[:notice] %>
+  				<p class="message"><%= flash[:notice] %></p>
+			<% end %>
+
+
 			<%= link_to "登録情報変更",edit_end_users_end_user_path, class: "mypageb", :style => "text-decoration:none; color:white; margin:20px;" %>
 			<%= link_to "パスワードを変更する",edit_end_user_registration_path, class: "mypageb", :style => "text-decoration:none; color:white; margin:20px;" %>
 

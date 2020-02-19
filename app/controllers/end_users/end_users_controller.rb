@@ -1,5 +1,5 @@
 class EndUsers::EndUsersController < ApplicationController
-
+	before_action :authenticate_end_user!
 	def show
 		@end_user = EndUser.find(params[:id])
 		@end_user.id = current_end_user.id
@@ -9,8 +9,13 @@ class EndUsers::EndUsersController < ApplicationController
 	end
 	def update
 		@end_user = EndUser.find(params[:id])
+		if
 		@end_user.update(end_user_params)
+		flash[:notice] ="※※※登録情報を変更しました※※※"
 		redirect_to end_users_end_user_path(@end_user.id)
+		else
+		render :edit
+		end
 	end
 	def destroy
 		end_user = EndUser.find(params[:id])
