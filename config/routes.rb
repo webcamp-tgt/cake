@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admins do
   	#adminsのルートを下記に書く
+    get 'end_user/:id/orders' => 'orders#orders'
 
   	resources :items, only: [:index, :show, :new, :create, :edit, :update]
     resources :end_users, only: [:index, :show, :edit, :update]
