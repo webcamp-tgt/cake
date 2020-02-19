@@ -8,29 +8,29 @@
 					<%= form_for(@end_user, url:end_users_end_user_path(@end_user.id)) do |f| %>
 					<tr>
 						<td>氏名</td>
-						<td><%= f.text_field :first_name %></td>
-						<td><%= f.text_field :last_name %></td>
+						<td><%= f.text_field :first_name,placeholder: "長野" %></td>
+						<td><%= f.text_field :last_name,placeholder: "太郎" %></td>
 					</tr>
 					<tr>
 						<td>カナ</td>
-						<td><%= f.text_field :first_name_kana %></td>
-						<td><%= f.text_field :last_name_kana%></td>
+						<td><%= f.text_field :first_name_kana,placeholder: "ナガノ" %></td>
+						<td><%= f.text_field :last_name_kana,placeholder: "タロウ"%></td>
 					</tr>
 					<tr>
 						<td>郵便番号</td>
-						<td><%= f.text_field :zip_code %></td>
+						<td><%= f.text_field :zip_code,placeholder: "7桁で入力して下さい" %></td>
 					</tr>
 					<tr>
 						<td>住所</td>
-						<td><%= f.text_field :address %></td>
+						<td><%= f.text_field :address,placeholder: "住所を入力して下さい" %></td>
 					</tr>
 					<tr>
 						<td>電話番号</td>
-						<td><%= f.text_field :phone_number %></td>
+						<td><%= f.text_field :phone_number,placeholder: "080XXXXXXXX" %></td>
 					</tr>
 					<tr>
 						<td>メールアドレス</td>
-						<td><%= f.text_field :email %></td>
+						<td><%= f.text_field :email,placeholder: "@gmail" %></td>
 					</tr>
 				</tbody>
 			</table>
