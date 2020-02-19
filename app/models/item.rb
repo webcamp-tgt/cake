@@ -7,5 +7,5 @@ class Item < ApplicationRecord
 
 	attachment :image
 
-	enum sale_status: {　販売中:0,品切れ:1 }
+	enum sale_status: {販売中:0, 品切れ:1 }
 end
