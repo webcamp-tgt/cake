@@ -1,52 +1,58 @@
-<div class="container">
-	<div class="row">
-		<h1>会員詳細画面</h1>
-		<table>
-			<tbody>
-				<tr>
-					<td>顧客ID</td>
-					<td>
-						<%= @end_user.id %>
-					</td>
-					<!-- ステータス表示 -->
-					<td><%= %></td>
-				</tr>
-				<tr>
-					<td>氏名</td>
-					<td>
-						<%= @end_user.first_name %>
-						<%= @end_user.last_name %>
-					</td>
+<body class= "abody">
+	<div class="container">
+		<div class="row">
+			<h1 class="atoptext">会員詳細画面</h1>
+			<table class= "table table-hover table-inverse">
+				<tbody class="atoptext">
+					<tr>
+						<td>顧客ID</td>
+						<td>
+							<%= @end_user.id %>
+						</td>
+						<!-- ステータス表示 -->
+						<td><%= %></td>
+					</tr>
+					<tr>
+						<td>氏名</td>
+						<td>
+							<%= @end_user.first_name %>
+							<%= @end_user.last_name %>
+						</td>
+					</tr>
+					<tr>
+						<td>フリガナ</td>
+						<td>
+							<%= @end_user.first_name_kana %>
+							<%= @end_user.last_name_kana %>
+						</td>
+					</tr>
+					<tr>
+						<td>郵便番号</td>
+						<td><%= @end_user.zip_code %></td>
+					</tr>
+					<tr>
+						<td>住所</td>
+						<td><%= @end_user.address %></td>
+					</tr>
+					<tr>
+						<td>電話番号</td>
+						<td><%= @end_user.phone_number %></td>
+					</tr>
+					<tr>
+						<td>メールアドレス</td>
+						<td><%= @end_user.email %></td>
+					</tr>
+				</tbody>
+			</table>
+			<tr>
+				<td><%= link_to "編集する",edit_admins_end_user_path(@end_user.id), class: "admin", :style => "margin:10px; text-decoration:none; color:white;" %>
+				</td>
+			</tr>
+			<tr>
+				<td><%= link_to "注文履歴一覧を見る",admins_orders_path,class: "admin", :style => "margin:10px; text-decoration:none; color:white;" %>
+				</td>
+			</tr>
+		</div>
 
-				</tr>
-				<tr>
-					<td>フリガナ</td>
-					<td>
-						<%= @end_user.first_name_kana %>
-						<%= @end_user.last_name_kana %>
-					</td>
-				</tr>
-				<tr>
-					<td>郵便番号</td>
-					<td><%= @end_user.zip_code %></td>
-				</tr>
-				<tr>
-					<td>住所</td>
-					<td><%= @end_user.address %></td>
-				</tr>
-				<tr>
-					<td>電話番号</td>
-					<td><%= @end_user.phone_number %></td>
-				</tr>
-				<tr>
-					<td>メールアドレス</td>
-					<td><%= @end_user.email %></td>
-				</tr>
-				<tr>
-					<td><%= link_to "編集する",edit_admins_end_user_path(@end_user.id) %></td>
-					<td><%= link_to "注文履歴一覧を見る", admins_orders_path %></td>
-				</tr>
-			</tbody>
-		</table>
 	</div>
-</div>
+</body>
