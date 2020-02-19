@@ -6,6 +6,10 @@ def index
  def show
    @order = Order.find(params[:id])
  end
+ def orders
+ 	@end_user = EndUser.find(params[:id])
+ 	@orders = @end_user.orders
+ end
 
  def update
    @order = Order.find(params[:id])
