@@ -285,6 +285,7 @@ DEPENDENCIES
   rails (~> 5.2.4, >= 5.2.4.1)
   refile!
   refile-mini_magick
+  sass
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

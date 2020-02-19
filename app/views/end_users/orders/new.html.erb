@@ -1,7 +1,10 @@
 <body class= "ordersbody">
 	<div class="container">
 		<div class="row">
-			<h2>購入情報入力画面</h2>
+			<div class="bg"></div>
+			<div class="bg bg2"></div>
+			<div class="bg bg3"></div>
+			<h2 class= "toptext">購入情報入力画面</h2>
 
 			<h3>支払方法</h3>
 			<%= form_with model: @order,local: true,url:end_users_orders_confirm_path, method: :get do |f| %>
