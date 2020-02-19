@@ -14,6 +14,7 @@ class EndUsers::EndUsersController < ApplicationController
 		flash[:notice] ="※※※登録情報を変更しました※※※"
 		redirect_to end_users_end_user_path(@end_user.id)
 		else
+		flash[:notice] ="※※※入力内容に誤りがあります※※※"
 		render :edit
 		end
 	end
