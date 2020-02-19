@@ -20,7 +20,7 @@
 					</li>
 					<li>
 						<label>ジャンル</label>
-						<%= f.collection_select :genre_id, Genre.all, :id, :name %>
+						<%= f.collection_select :genre_id, Genre.where(is_active: true), :id, :name %>
 					</li>
 					<li>
 						<label>税抜価格 ¥</label>
