@@ -107,3 +107,11 @@
         </div>
       </div>
     </div>
+  </body>
+  <% if flash[:alert] != nil %>
+<script>
+  window.onload = function(){
+    alert("退会済みのアカウントです")
+  }
+</script>
+<% end %>

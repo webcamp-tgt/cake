@@ -8,7 +8,7 @@
 			</h3>
 
 			<%= link_to "退会しない", end_users_end_user_path(current_end_user.id),class: "mypageb", :style => "margin:20px; text-decoration:none; color:white;" %>
-			<%= link_to "退会する", end_users_end_user_path(current_end_user.id), method: :delete, "date-confirm" => "本当に退会しますか？", class: "mypageb2", :style => "margin:20px; text-decoration:none; color:white;"  %>
+			<%= link_to "退会する", end_users_end_user_path(current_end_user.id), data: { confirm: "本当に退会しますか?" }, method: :delete , class: "mypageb2", :style => "margin:20px; text-decoration:none; color:white;"  %>
 		</div>
 	</div>
 </body>
