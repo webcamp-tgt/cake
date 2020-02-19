@@ -65,10 +65,10 @@
 					</tbody>
 				</table>
 
-				<h3>支払方法</h3>
+				<h3 class= "table">支払方法</h3>
 				<%= f.hidden_field :payment_method, :value => @order.payment_method %>
 				<%= @order.payment_method %>
-				<h3>お届け先</h3>
+				<h3 class= "table">お届け先</h3>
 				郵便番号: <%= f.hidden_field :zip_code, :value => @order.zip_code %><%= @order.zip_code %><br>
 				住所: <%= f.hidden_field :address, :value => @order.address %><%= @order.address %><br>
 				宛名:<%= f.hidden_field :order_name, :value => @order.order_name %><%= @order.order_name %><br>

@@ -1,48 +1,55 @@
-<h1>会員編集画面</h1>
-<table>
-	<tbody>
-		<%= form_for(@end_user, url:admins_end_user_path(@end_user.id), method: :patch) do |f| %>
-		<tr>
-			<td>会員ID</td>
-			<td><%= @end_user.id %></td>
-		</tr>
-		<tr>
-			<td>氏名</td>
-			<td><%= f.text_field :first_name %></td>
-			<td><%= f.text_field :last_name %></td>
-		</tr>
-		<tr>
-			<td>フリガナ</td>
-			<td><%= f.text_field :first_name_kana %></td>
-			<td><%= f.text_field :last_name_kana %></td>
-		</tr>
-		<tr>
-			<td>郵便番号</td>
-			<td><%= f.text_field :zip_code %></td>
-		</tr>
-		<tr>
-			<td>住所</td>
-			<td><%= f.text_field :address %></td>
-		</tr>
-		<tr>
-			<td>電話番号</td>
-			<td><%= f.text_field :phone_number %></td>
-		</tr>
-		<tr>
-			<td>メールアドレス</td>
-			<td><%= f.text_field :email %></td>
-		</tr>
-		<tr>
-			<td>会員ステータス</td>
-			<td>
-				<label><%= radio_button_tag :status_id, "1" %>有効</label>
-				<label><%= radio_button_tag :status_id, "2" %>退会済み</label>
-			</td>
-		</tr>
+<div class="container">
+	<div class="row">
+		<body class="abody">
+			<h1 class= "atoptext">会員編集画面</h1>
+			<table class= "atoptext table table-bordered">
+				<tbody>
+					<%= form_for(@end_user, url:admins_end_user_path(@end_user.id), method: :patch) do |f| %>
+					<tr>
+						<td>会員ID</td>
+						<td><%= @end_user.id %></td>
+					</tr>
+					<tr>
+						<td>氏名</td>
+						<td><%= f.text_field :first_name %></td>
+						<td><%= f.text_field :last_name %></td>
+					</tr>
+					<tr>
+						<td>フリガナ</td>
+						<td><%= f.text_field :first_name_kana %></td>
+						<td><%= f.text_field :last_name_kana %></td>
+					</tr>
+					<tr>
+						<td>郵便番号</td>
+						<td><%= f.text_field :zip_code %></td>
+					</tr>
+					<tr>
+						<td>住所</td>
+						<td><%= f.text_field :address %></td>
+					</tr>
+					<tr>
+						<td>電話番号</td>
+						<td><%= f.text_field :phone_number %></td>
+					</tr>
+					<tr>
+						<td>メールアドレス</td>
+						<td><%= f.text_field :email %></td>
+					</tr>
+					<tr>
+						<td>会員ステータス</td>
+						<td>
+							<label><%= radio_button_tag :status_id, "1" %>有効</label>
+							<label><%= radio_button_tag :status_id, "2" %>退会済み</label>
+						</td>
+					</tr>
 
-		<tr>
-			<td><%= f.submit "変更を保存する" %></td>
-		</tr>
-		<% end %>
-	</tbody>
-</table>
+				</tbody>
+			</table>
+			<tr>
+				<td><%= f.submit "変更を保存する", class: "admin" %></td>
+			</tr>
+			<% end %>
+
+		</body>
+	</div>
+</div>
