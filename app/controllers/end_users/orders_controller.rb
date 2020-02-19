@@ -32,7 +32,14 @@ class EndUsers::OrdersController < ApplicationController
             @order.payment_method = params[:order][:payment_method].to_i
         else
     		# もし３つ目を選択したらフォームに書いた住所
+            zip_code = params[:order][:zip_code]
+            address = params[:order][:address]
+            order_name = params[:order][:order_name]
+            if  zip_code == "" || address == "" || order_name == ""
+            redirect_to new_end_users_order_path
+            else
             @order = Order.new(order_params)
+            end
         end
     end
 
