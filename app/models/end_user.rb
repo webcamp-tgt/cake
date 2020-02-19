@@ -3,9 +3,10 @@ class EndUser < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :first_name_kana, presence: true
-  validates :last_name_kana, presence: true
-  
+  validates :first_name_kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
+  validates :last_name_kana, presence: true, format:{ with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
+  validates :zip_code, length: { is: 7 }
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 

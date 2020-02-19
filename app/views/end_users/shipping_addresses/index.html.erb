@@ -7,15 +7,15 @@
 				<thead>
 					<tr>
 						<th>郵便番号</th>
-						<td><%= f.text_field :zip_code %></td>
+						<td><%= f.text_field :zip_code,placeholder: "7桁で入力して下さい" %></td>
 					</tr>
 					<tr>
 						<th>住所</th>
-						<td><%= f.text_field :address %></td>
+						<td><%= f.text_field :address,placeholder: "住所を入力して下さい" %></td>
 					</tr>
 					<tr>
 						<th>宛名</th>
-						<td><%= f.text_field :order_name %></td>
+						<td><%= f.text_field :order_name,placeholder: "宛名を入力してください" %></td>
 					</tr>
 				</thead>
 			</table>
