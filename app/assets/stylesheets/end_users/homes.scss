@@ -1,10 +1,6 @@
 // Place all the styles related to the end_users::homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.topbody {
-	background-color: #FEEABC;
-	margin: 0;
-}
 .toptext {
 	color: #767676;
 	font-size: 30px;
@@ -17,7 +13,7 @@
 	border-top: solid 5px #61C359;
 	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 	width: 19%;
-  }
+}
 .item-box p {
 	margin: 0;
 	padding: 0;
@@ -42,3 +38,57 @@
     box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);/*浮き上がるように*/
 }
 
+html {
+	height:100%;
+}
+
+body {
+	margin:0;
+}
+
+.bg {
+	animation:slide 10s ease-in-out infinite alternate;
+	background-image: linear-gradient(-60deg, #ffc6ff 50%, #ea618e 50%);
+	bottom:0;
+	left:-50%;
+	opacity:.5;
+	position:fixed;
+	right:-50%;
+	top:0;
+	z-index:-1;
+}
+
+.bg2 {
+	animation-direction:alternate-reverse;
+	animation-duration:4s;
+}
+
+.bg3 {
+	animation-duration:5s;
+}
+
+.content {
+	background-color:rgba(255,255,255,.8);
+	border-radius:.25em;
+	box-shadow:0 0 .25em rgba(0,0,0,.25);
+	box-sizing:border-box;
+	left:50%;
+	padding:10vmin;
+	position:fixed;
+	text-align:center;
+	top:50%;
+	transform:translate(-50%, -50%);
+}
+
+h1 {
+	font-family:monospace;
+}
+
+@keyframes slide {
+	0% {
+		transform:translateX(-25%);
+	}
+	100% {
+		transform:translateX(25%);
+	}
+}
