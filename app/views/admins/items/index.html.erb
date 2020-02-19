@@ -22,7 +22,7 @@
 		<tr>
 			<td class= "atoptext"><%= item.id %></td>
 			<td class= "atoptext"><%= link_to item.name, admins_item_path(item) %></td>
-			<td class= "atoptext"><%= item.price %></td>
+			<td class= "atoptext">¥<%= item.price %></td>
 			<td class= "atoptext"><%= item.genre.name%></td>
 			<td class= "atoptext"><%= item.sale_status %></td>
 		</tr>
