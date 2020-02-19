@@ -1,8 +1,14 @@
 <body class= "mypage">
 	<div class="container">
 		<div class="row">
+
 			<h2 class= "toptext">登録情報編集</h2>
 			<%= link_to "退会する", end_users_end_users_unsubscribe_path, class: "mypageb2", :style => "margin:20px; text-decoration:none; color:white;" %>
+
+			<% if flash[:notice] %>
+  				<p class="message"><%= flash[:notice] %></p>
+			<% end %>
+
 			<table class="table table-bordered">
 				<tbody>
 					<%= form_for(@end_user, url:end_users_end_user_path(@end_user.id)) do |f| %>
